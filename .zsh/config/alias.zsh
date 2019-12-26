@@ -1,11 +1,13 @@
 # general
-alias reload='source ~/.zshrc'
+alias reload='source $ZDOTDIR/.zshrc'
 alias fgrep='find ./ | grep'
 alias du='du -shc * | sort -h'
+alias ls='ls -aCFG'
 
 # git
 alias gcm='git commit -m'
 alias gca='git commit --amend'
+alias glo='git log --oneline'
 alias gdh='git diff HEAD'
 alias gpo='git push origin'
 alias grs='git reset'
