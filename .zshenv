@@ -21,6 +21,9 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init - --no-rehash)"
 
+# rustup
+export PATH=$HOME/.cargo/bin:$PATH
+
 # peco
 HISTFILE=~/.zsh_history #履歴ファイルの設定
 HISTSIZE=1000000 # メモリに保存される履歴の件数。(保存数だけ履歴を検索できる)
