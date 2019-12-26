@@ -7,6 +7,9 @@ autoload -Uz _zplugin
 # autoload {{{
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit -u
+# cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 # }}}
 
 # SUB FILES {{{
