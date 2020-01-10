@@ -9,6 +9,8 @@ alias psgrep='ps aux | grep'
 # git
 alias gcm='git commit -m'
 alias gca='git commit --amend'
+alias gcac='git commit --amend -C HEAD'
+alias gcacn='git commit --amend -C HEAD --date=now'
 alias glo='git log --oneline'
 alias gdh='git diff HEAD'
 alias gpo='git push origin'
@@ -19,7 +21,7 @@ alias grsh='git reset --hard'
 alias gr='git rebase'
 alias gri='git rebase -i'
 alias gf='git fetch'
-alias gf='git fetch origin'
+alias gfo='git fetch origin'
 
 # docker
 alias dps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}"'
