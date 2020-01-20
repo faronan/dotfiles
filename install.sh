@@ -18,7 +18,7 @@ DOT_FILES=(
 cd "$HOME"
 
 for file in ${DOT_FILES[@]}; do
-  create_symlink dotfiles/$file $HOME/$file
+  create_symlink ./$file $HOME/$file
 done
 
 #zplugiin
@@ -29,5 +29,5 @@ if [ ! -e ~/.zplugin ]; then
 fi
 
 #git
-create_symlink dotfiles/.git_config/.gitignore_global $HOME/.gitignore_global
-create_symlink dotfiles/.git_config/.gitconfig.local $HOME/.gitconfig.local
+create_symlink ./.git_config/.gitignore_global $HOME/.gitignore_global
+create_symlink ./.git_config/.gitconfig.local $HOME/.gitconfig.local
