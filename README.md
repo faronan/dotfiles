@@ -1,5 +1,6 @@
 ## dotfiles
 - zsh
+- .git_config
 
 ## Quickstart
 
