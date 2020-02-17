@@ -1,7 +1,7 @@
 [url "https://github.com/"]
-	insteadOf = git@github.com:
+  insteadOf = git@github.com:
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [color]
   status = auto
   diff = auto
@@ -11,8 +11,8 @@
 [include]
   path = ~/.gitconfig.local
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [ghq]
-	root = ~/dotfiles
+  root = ~/dotfiles
 [alias]
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
