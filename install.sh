@@ -1,11 +1,11 @@
 create_symlink() {
   if [ ! -e "$1" ]; then
-    echo "リンク先が存在しません: $1"
+    echo "no link: $1"
   elif [ -e "$2" ]; then
-    echo "同名のファイルが既に存在します: $2"
+    echo "already exists: $2"
   else
     ln -s "$1" "$2"
-    echo "シンボリックリンクを作成しました: $2 -> $1"
+    echo "sucess!: $2 -> $1"
   fi
 }
 
