@@ -23,7 +23,7 @@ alias gri='git rebase -i'
 alias gf='git fetch'
 alias gfo='git fetch origin'
 alias gg='git graph'
-alias gcode="cd ~/dotfiles && cp -f ~/Library/'Application Support'/Code/User/settings.json ./.vscode/settings.json  && git checkout -b vscode_update && git commit && git push origin vscode_update && cd -"
+alias gcode="cd ~/dotfiles && git checkout -b vscode_update || git checkout vscode_update && cp -f ~/Library/'Application Support'/Code/User/settings.json ./.vscode/settings.json && git add ./.vscode/settings.json && git commit && git push origin vscode_update && git checkout master && cd -"
 
 
 # docker
