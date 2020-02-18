@@ -110,5 +110,6 @@
     ],
     "gitlens.advanced.messages": {
         "suppressGitVersionWarning": true
-    }
+    },
+    "editor.copyWithSyntaxHighlighting": false
 }
