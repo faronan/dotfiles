@@ -1,6 +1,7 @@
 ## dotfiles
 - zsh
 - .git_config
+- .vscode
 
 ## Quickstart
 
