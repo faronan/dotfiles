@@ -29,6 +29,7 @@ if [ ! -e ~/.zplugin ]; then
 fi
 
 #git
+create_symlink dotfiles/.gitconfig $HOME/.gitconfig
 create_symlink dotfiles/.git_config/.gitignore_global $HOME/.gitignore_global
 create_symlink dotfiles/.git_config/.gitconfig.local $HOME/.gitconfig.local
 
