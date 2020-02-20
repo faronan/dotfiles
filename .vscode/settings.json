@@ -110,5 +110,7 @@
     ],
     "gitlens.advanced.messages": {
         "suppressGitVersionWarning": true
-    }
+    },
+    "editor.copyWithSyntaxHighlighting": false,
+    "files.trimFinalNewlines": true
 }
