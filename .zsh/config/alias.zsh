@@ -2,9 +2,14 @@
 alias reload='source $ZDOTDIR/.zshrc'
 alias fgrep='find ./ | grep'
 alias du='du -shc * | sort -h'
-alias ls='ls -aCFG'
+# alias ls='ls -aCFG'
 alias tree='tree -a -I ".git|.history|node_modules|__pycache__"'
 alias psgrep='ps aux | grep'
+
+# substitute
+alias ls='exa -aF'
+alias cat='bat'
+alias fd='fd -H'
 
 # git
 alias gcm='git commit -m'
