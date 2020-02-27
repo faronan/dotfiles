@@ -35,3 +35,6 @@ create_symlink dotfiles/.git_config/.gitconfig.local $HOME/.gitconfig.local
 
 #.vscode
 cp -f dotfiles/.vscode/settings.json ~/Library/'Application Support'/Code/User/settings.json
+
+# custom command
+create_symlink dotfiles/custom_command $HOME/custom_command
