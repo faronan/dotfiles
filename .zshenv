@@ -38,3 +38,6 @@ setopt hist_save_no_dups # histryコマンドは残さない
 setopt hist_expire_dups_first # 古い履歴を削除する必要がある場合、まず重複しているものから削除
 setopt hist_expand # 補完時にヒストリを自動的に展開する
 setopt inc_append_history # 履歴をインクリメンタルに追加
+
+# custom_command
+export PATH=$HOME/custom_command:$PATH
