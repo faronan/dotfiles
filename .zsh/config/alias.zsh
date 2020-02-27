@@ -7,7 +7,7 @@ alias tree='tree -a -I ".git|.history|node_modules|__pycache__"'
 alias psgrep='ps aux | grep'
 
 # custom command
-alias git checkout='git_checkout'
+alias 'gco'=git_checkout
 
 # substitute
 alias ls='exa -aF'
