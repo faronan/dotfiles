@@ -24,6 +24,9 @@ eval "$(rbenv init - --no-rehash)"
 # rustup
 export PATH=$HOME/.cargo/bin:$PATH
 
+# custom_command
+export PATH=$HOME/custom_command:$PATH
+
 # peco
 HISTFILE=~/.zsh_history #履歴ファイルの設定
 HISTSIZE=1000000 # メモリに保存される履歴の件数。(保存数だけ履歴を検索できる)
@@ -38,6 +41,3 @@ setopt hist_save_no_dups # histryコマンドは残さない
 setopt hist_expire_dups_first # 古い履歴を削除する必要がある場合、まず重複しているものから削除
 setopt hist_expand # 補完時にヒストリを自動的に展開する
 setopt inc_append_history # 履歴をインクリメンタルに追加
-
-# custom_command
-export PATH=$HOME/custom_command:$PATH
