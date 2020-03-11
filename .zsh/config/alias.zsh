@@ -10,7 +10,10 @@ alias psgrep='ps aux | grep'
 alias 'gco'=git_checkout
 
 # substitute
-alias ls='exa -aF'
+alias ls='lsd'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 alias cat='bat'
 alias fd='fd -H'
 
