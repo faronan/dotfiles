@@ -53,3 +53,6 @@ zplugin light zdharma/fast-syntax-highlighting
 
 zplugin ice wait'!0' lucid
 zplugin light popstas/zsh-command-time
+
+zplugin ice wait'!0' lucid
+zplugin light b4b4r07/enhancd
