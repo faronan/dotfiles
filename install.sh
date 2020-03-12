@@ -21,7 +21,7 @@ for file in ${DOT_FILES[@]}; do
   create_symlink dotfiles/$file $HOME/$file
 done
 
-#zplugiin
+#zplugin
 if [ ! -e ~/.zplugin ]; then
 	mkdir ~/.zplugin
   git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
