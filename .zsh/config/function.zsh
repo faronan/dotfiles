@@ -6,9 +6,7 @@ function do_enter() {
     fi
     echo
     echo -e "\e[0;33m--- ls ---\e[0m"
-    ls
-    # ↓おすすめ
-    # ls_abbrev
+    ls_abbrev
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo
         echo -e "\e[0;33m--- git status ---\e[0m"
@@ -35,15 +33,14 @@ function ls_abbrev() {
     echo "${fg_bold[yellow]}$(command ls -1 -A | wc -l | tr -d ' ')" \
       "files exist${reset_color}"
   else
-    echo "$ls_result"
+    lsd -la
   fi
 }
 
-path_history=($(pwd))
-path_history_index=1
-path_history_size=1
-
 function push_path_history() {
+  path_history=($(pwd))
+  path_history_index=1
+  path_history_size=1
   local curr_path
   curr_path=$1
   if [ $curr_path != $path_history[$path_history_index] ]; then
@@ -60,33 +57,6 @@ function push_path_history() {
   fi
 }
 
-function dir_back() {
-  if [ $path_history_index -ne 1 ]; then
-    path_history_index=$(($path_history_index-1))
-    local prev_path
-    prev_path=$path_history[$path_history_index]
-    echo "cd $prev_path"
-    cd $prev_path
-    zle accept-line
-  fi
-}
-
-function dir_forward() {
-  if [ $path_history_index -ne $path_history_size ]; then
-    path_history_index=$(($path_history_index+1))
-    local next_path
-    next_path=$path_history[$path_history_index]
-    echo "cd $next_path"
-    cd $next_path
-    zle accept-line
-  fi
-}
-
-function reset_path_history() {
-  path_history=($(pwd))
-  path_history_index=1
-  path_history_size=1
-}
 
 function chpwd() {
   push_path_history $(pwd)
