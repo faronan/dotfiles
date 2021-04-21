@@ -1,3 +1,5 @@
 .zcompdump
 .chpwd-recent-dirs
 *.local
+.zcompcache
+.zsh_sessions
