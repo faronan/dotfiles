@@ -14,3 +14,5 @@
   excludesfile = ~/.gitignore_global
 [alias]
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+[commit]
+	template = /Users/toshiki/dotfiles/.git_config/.commit_template
