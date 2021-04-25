@@ -34,8 +34,10 @@ alias gri='git rebase -i'
 alias gf='git fetch'
 alias gfo='git fetch origin'
 alias gg='git graph'
-alias gcode="cd ~/dotfiles && git checkout -b vscode_update || git checkout vscode_update && cp -f ~/Library/'Application Support'/Code/User/settings.json ./.vscode/settings.json && git add ./.vscode/settings.json && git commit && git push origin vscode_update && git checkout master && cd -"
+alias gs='git switch'
+alias gsc='git switch -c'
 
+alias gcode="cd ~/dotfiles && git checkout -b vscode_update || git checkout vscode_update && cp -f ~/Library/'Application Support'/Code/User/settings.json ./.vscode/settings.json && git add ./.vscode/settings.json && git commit && git push origin vscode_update && git checkout master && cd -"
 
 # docker
 alias dps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}"'
