@@ -1,0 +1,42 @@
+# ripgrep configuration
+# https://github.com/BurntSushi/ripgrep
+
+# Smart case (case-insensitive unless uppercase letters used)
+--smart-case
+
+# Search hidden files (but still respect .gitignore)
+--hidden
+
+# Follow symbolic links
+--follow
+
+# Add line numbers
+--line-number
+
+# Exclude common directories
+--glob=!.git/*
+--glob=!node_modules/*
+--glob=!.next/*
+--glob=!dist/*
+--glob=!coverage/*
+--glob=!__pycache__/*
+--glob=!.venv/*
+--glob=!*.min.js
+--glob=!*.min.css
+--glob=!package-lock.json
+--glob=!yarn.lock
+--glob=!pnpm-lock.yaml
+
+# Max columns (truncate long lines)
+--max-columns=200
+--max-columns-preview
+
+# Context lines (show surrounding lines)
+# Uncomment if you want default context
+# --context=2
+
+# Color settings
+--colors=line:fg:yellow
+--colors=path:fg:green
+--colors=match:fg:red
+--colors=match:style:bold

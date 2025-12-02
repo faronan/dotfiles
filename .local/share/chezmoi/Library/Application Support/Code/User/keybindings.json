@@ -1,0 +1,49 @@
+[
+  // Terminal: Shift+Enter for line continuation
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\\\r\n"
+    },
+    "when": "terminalFocus"
+  },
+  // Quick open recent files
+  {
+    "key": "cmd+e",
+    "command": "workbench.action.openRecent"
+  },
+  // Toggle terminal
+  {
+    "key": "cmd+j",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  // Focus on explorer (default is cmd+shift+e, this ensures it works)
+  {
+    "key": "cmd+shift+e",
+    "command": "workbench.view.explorer"
+  },
+  // Focus on editor from terminal
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "terminalFocus"
+  },
+  // Duplicate line
+  {
+    "key": "cmd+shift+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  // Move line up/down (keep default but ensure it works)
+  {
+    "key": "alt+up",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+down",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  }
+]

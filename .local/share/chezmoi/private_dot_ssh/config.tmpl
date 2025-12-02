@@ -1,0 +1,38 @@
+# ===========================================
+# SSH Config - Managed by chezmoi
+# ===========================================
+
+# Include local machine-specific config (EC2 hosts, etc.)
+# This file is created by chezmoi on first run, then managed manually
+# SSH ignores missing files with Include when using wildcards
+Include ~/.ssh/local.config*
+
+# ===========================================
+# Global Defaults
+# ===========================================
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentitiesOnly yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+
+# ===========================================
+# GitHub - Personal
+# ===========================================
+# Note: Generate key with: ssh-keygen -t ed25519 -C "your_email@example.com"
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+
+{{ if .isWork -}}
+# ===========================================
+# GitHub - Work (via alias)
+# ===========================================
+# Usage: git clone git@github.com.work:org/repo.git
+Host github.com.work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_work
+{{ end -}}

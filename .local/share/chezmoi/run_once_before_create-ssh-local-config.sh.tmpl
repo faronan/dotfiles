@@ -1,0 +1,34 @@
+#!/bin/bash
+set -euo pipefail
+
+# Create ~/.ssh/local.config if it doesn't exist
+# This file is for machine-specific SSH hosts (EC2, VPNs, etc.)
+
+SSH_LOCAL_CONFIG="$HOME/.ssh/local.config"
+
+if [ ! -f "$SSH_LOCAL_CONFIG" ]; then
+    echo "Creating $SSH_LOCAL_CONFIG..."
+    mkdir -p "$HOME/.ssh"
+    cat > "$SSH_LOCAL_CONFIG" << 'EOF'
+# ===========================================
+# Local SSH Config - Machine-specific hosts
+# ===========================================
+# This file is for hosts specific to this machine (EC2, VPNs, etc.)
+# Edit this file directly - chezmoi will not overwrite it.
+#
+# Example:
+# Host my-ec2
+#   HostName ec2-xx-xx-xx-xx.ap-northeast-1.compute.amazonaws.com
+#   User ec2-user
+#   IdentityFile ~/.ssh/my-key.pem
+#
+# Host dev-server
+#   HostName 192.168.1.100
+#   User developer
+#   ForwardAgent yes
+EOF
+    chmod 600 "$SSH_LOCAL_CONFIG"
+    echo "Created $SSH_LOCAL_CONFIG"
+else
+    echo "$SSH_LOCAL_CONFIG already exists, skipping."
+fi

@@ -7,5 +7,8 @@ LICENSE
 {{- if ne .chezmoi.os "darwin" }}
 Brewfile
 run_once_before_00-install-homebrew.sh.tmpl
+run_once_before_10-install-packages.sh.tmpl
 run_onchange_after_configure-macos.sh.tmpl
+run_once_after_macos-defaults.sh.tmpl
+Library/
 {{- end }}

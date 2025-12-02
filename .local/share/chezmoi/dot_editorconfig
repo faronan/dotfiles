@@ -1,0 +1,73 @@
+# EditorConfig - https://editorconfig.org
+root = true
+
+# ===========================================
+# Default settings for all files
+# ===========================================
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# ===========================================
+# Python - PEP 8 standard
+# ===========================================
+[*.py]
+indent_size = 4
+
+# ===========================================
+# Markdown - preserve trailing whitespace for line breaks
+# ===========================================
+[*.md]
+trim_trailing_whitespace = false
+
+# ===========================================
+# Makefile - requires tabs
+# ===========================================
+[Makefile]
+indent_style = tab
+
+[*.mk]
+indent_style = tab
+
+# ===========================================
+# Go - gofmt standard
+# ===========================================
+[*.go]
+indent_style = tab
+
+# ===========================================
+# Shell scripts
+# ===========================================
+[*.sh]
+indent_size = 2
+
+[*.fish]
+indent_size = 4
+
+# ===========================================
+# JavaScript/TypeScript - Prettier default
+# ===========================================
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
+
+# ===========================================
+# YAML - common in CI/CD
+# ===========================================
+[*.{yml,yaml}]
+indent_size = 2
+
+# ===========================================
+# JSON
+# ===========================================
+[*.{json,jsonc}]
+indent_size = 2
+
+# ===========================================
+# Rust - rustfmt standard
+# ===========================================
+[*.rs]
+indent_size = 4

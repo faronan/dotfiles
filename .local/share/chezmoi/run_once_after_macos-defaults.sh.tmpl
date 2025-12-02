@@ -1,0 +1,79 @@
+#!/bin/bash
+set -euo pipefail
+{{ if eq .chezmoi.os "darwin" -}}
+echo "Configuring macOS defaults..."
+
+# ===========================================
+# Keyboard
+# ===========================================
+# キーリピート高速化（開発効率向上に必須）
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# ===========================================
+# Finder
+# ===========================================
+# 隠しファイル表示（dotfiles編集に必須）
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# パスバー表示（現在地把握に便利）
+defaults write com.apple.finder ShowPathbar -bool true
+
+# ステータスバー表示（ファイル数/容量確認に便利）
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# デフォルトをリスト表示に（一覧性向上）
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# 拡張子を常に表示
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# 拡張子変更時の警告を無効化
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# ===========================================
+# Dock
+# ===========================================
+# Dockを自動的に隠す（画面領域確保）
+defaults write com.apple.dock autohide -bool true
+
+# 隠す/表示のアニメーション高速化
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.3
+
+# ===========================================
+# Screenshot
+# ===========================================
+# スクリーンショットの保存先
+mkdir -p "$HOME/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+
+# スクリーンショットの影を無効化（クリーンな画像）
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# ===========================================
+# Performance & Privacy
+# ===========================================
+# .DS_Storeをネットワークドライブに作成しない
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# .DS_StoreをUSBドライブに作成しない
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# ===========================================
+# Trackpad (optional - uncomment if needed)
+# ===========================================
+# タップでクリック
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+# ===========================================
+# Apply changes
+# ===========================================
+echo "Restarting Finder and Dock..."
+killall Finder || true
+killall Dock || true
+
+echo "macOS defaults configured successfully!"
+echo ""
+echo "Note: Some settings may require logout/restart to take full effect."
+{{ end -}}
