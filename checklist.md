@@ -45,9 +45,9 @@
 
 ## Phase 5: 実行スクリプト
 
-- [ ] `run_once_before_00-install-homebrew.sh.tmpl`
-- [ ] `run_once_before_10-install-packages.sh.tmpl`
-- [ ] `run_onchange_after_configure-macos.sh.tmpl`
+- [x] `run_once_before_00-install-homebrew.sh.tmpl`
+- [x] `run_once_before_10-install-packages.sh.tmpl`
+- [x] `run_onchange_after_configure-macos.sh.tmpl`
 
 ## Phase 6: Git リポジトリ
 
