@@ -15,22 +15,22 @@
 
 ## Phase 2: Fish Shell 設定
 
-- [ ] メイン設定
-  - [ ] `dot_config/fish/config.fish`
+- [x] メイン設定
+  - [x] `dot_config/fish/config.fish`
 
-- [ ] conf.d/ ファイル
-  - [ ] `00-xdg.fish`
-  - [ ] `10-homebrew.fish`
-  - [ ] `20-mise.fish`
-  - [ ] `30-tools.fish`
-  - [ ] `40-aliases.fish`
-  - [ ] `50-uv.fish`
+- [x] conf.d/ ファイル
+  - [x] `00-xdg.fish`
+  - [x] `10-homebrew.fish`
+  - [x] `20-mise.fish`
+  - [x] `30-tools.fish`
+  - [x] `40-aliases.fish`
+  - [x] `50-uv.fish`
 
-- [ ] functions/ ファイル
-  - [ ] `mkcd.fish`
-  - [ ] `proj.fish`
-  - [ ] `fvim.fish`
-  - [ ] `fbr.fish`
+- [x] functions/ ファイル
+  - [x] `mkcd.fish`
+  - [x] `proj.fish`
+  - [x] `fvim.fish`
+  - [x] `fbr.fish`
 
 ## Phase 3: Git 設定
 
