@@ -2,16 +2,16 @@
 
 ## Phase 1: 基盤構築
 
-- [ ] ディレクトリ構造作成
-  - [ ] `.local/share/chezmoi/`
-  - [ ] `dot_config/fish/conf.d/`
-  - [ ] `dot_config/fish/functions/`
-  - [ ] `dot_config/git/`
-  - [ ] `dot_config/mise/`
+- [x] ディレクトリ構造作成
+  - [x] `.local/share/chezmoi/`
+  - [x] `dot_config/fish/conf.d/`
+  - [x] `dot_config/fish/functions/`
+  - [x] `dot_config/git/`
+  - [x] `dot_config/mise/`
 
-- [ ] chezmoi 設定ファイル
-  - [ ] `.chezmoi.toml.tmpl`
-  - [ ] `.chezmoiignore`
+- [x] chezmoi 設定ファイル
+  - [x] `.chezmoi.toml.tmpl`
+  - [x] `.chezmoiignore`
 
 ## Phase 2: Fish Shell 設定
 
@@ -51,12 +51,12 @@
 
 ## Phase 6: Git リポジトリ
 
+- [x] `git init` 実行
 - [ ] `.gitignore` 作成
 - [ ] `README.md` 作成
-- [ ] `git init` 実行
 
 ## 検証
 
 - [ ] ディレクトリ構造が仕様書と一致
 - [ ] 全ファイルが作成済み
-- [ ] Git リポジトリが初期化済み
+- [x] Git リポジトリが初期化済み

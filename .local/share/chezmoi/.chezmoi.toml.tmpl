@@ -1,0 +1,12 @@
+{{- $name := promptStringOnce . "name" "名前（Git用）" -}}
+{{- $email := promptStringOnce . "email" "メールアドレス" -}}
+{{- $isWork := promptBoolOnce . "isWork" "仕事用マシンですか？ (y/n)" -}}
+
+[data]
+  name = {{ $name | quote }}
+  email = {{ $email | quote }}
+  isWork = {{ $isWork }}
+
+[edit]
+  command = "code"
+  args = ["--wait"]

@@ -1,0 +1,11 @@
+README.md
+LICENSE
+.git/
+.gitignore
+
+# OS固有ファイルを除外
+{{- if ne .chezmoi.os "darwin" }}
+Brewfile
+run_once_before_00-install-homebrew.sh.tmpl
+run_onchange_after_configure-macos.sh.tmpl
+{{- end }}
