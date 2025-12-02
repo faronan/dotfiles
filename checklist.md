@@ -39,9 +39,9 @@
 
 ## Phase 4: その他設定
 
-- [ ] `dot_config/mise/config.toml`
-- [ ] `dot_config/starship.toml`
-- [ ] `Brewfile`
+- [x] `dot_config/mise/config.toml`
+- [x] `dot_config/starship.toml`
+- [x] `Brewfile`
 
 ## Phase 5: 実行スクリプト
 
