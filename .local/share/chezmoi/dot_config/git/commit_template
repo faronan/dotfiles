@@ -1,0 +1,45 @@
+# <type>(<scope>): <subject>
+#
+# <body>
+#
+# <footer>
+# ============================================================
+# Conventional Commits + Gitmoji
+# Format: <emoji> <type>(<scope>): <subject>
+# ============================================================
+#
+# Types:
+#   feat      ✨  New feature
+#   fix       🐛  Bug fix
+#   docs      📝  Documentation only
+#   style     💄  Code style (formatting, no logic change)
+#   refactor  ♻️   Code change (neither fix nor feature)
+#   perf      ⚡  Performance improvement
+#   test      ✅  Add/update tests
+#   build     📦  Build system or dependencies
+#   ci        👷  CI/CD configuration
+#   chore     🔧  Maintenance tasks
+#   revert    ⏪  Revert a commit
+#
+# Special:
+#   🎉  Initial commit
+#   🚀  Deploy
+#   🔒  Security fix
+#   🚨  Critical hotfix
+#   🚧  Work in progress
+#   🔥  Remove code/files
+#   💥  Breaking change
+#
+# Examples:
+#   ✨ feat(auth): add OAuth2 login support
+#   🐛 fix(api): handle null response from server
+#   📝 docs: update README with new API endpoints
+#   ♻️  refactor(utils): simplify date formatting logic
+#
+# Rules:
+#   - Use imperative mood: "add" not "added" or "adds"
+#   - No period at the end of subject
+#   - Subject line max 50 chars, body wrap at 72
+#   - Separate subject from body with blank line
+# ============================================================
+

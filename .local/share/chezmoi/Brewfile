@@ -21,6 +21,8 @@ brew "git-delta"
 brew "jq"
 brew "yq"
 brew "httpie"
+brew "tree"
+brew "ghq"
 
 # === Applications ===
 cask "visual-studio-code"
