@@ -34,8 +34,8 @@
 
 ## Phase 3: Git 設定
 
-- [ ] `dot_config/git/config.tmpl`
-- [ ] `dot_config/git/ignore`
+- [x] `dot_config/git/config.tmpl`
+- [x] `dot_config/git/ignore`
 
 ## Phase 4: その他設定
 

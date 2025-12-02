@@ -1,0 +1,51 @@
+[user]
+  name = {{ .name | quote }}
+  email = {{ .email | quote }}
+
+[core]
+  editor = vim
+  pager = delta
+  excludesfile = ~/.config/git/ignore
+
+[init]
+  defaultBranch = main
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[fetch]
+  prune = true
+
+[diff]
+  colorMoved = default
+
+[merge]
+  conflictstyle = diff3
+
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  ci = commit
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  graph = log --graph --oneline --decorate --all
+
+{{ if eq .chezmoi.os "darwin" -}}
+[credential]
+  helper = osxkeychain
+{{ end -}}
+
+{{ if .isWork -}}
+# 仕事用マシン固有設定
+[http]
+  # proxy = http://proxy.company.com:8080
+{{ end -}}
