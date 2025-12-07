@@ -23,12 +23,14 @@ brew "ghq"
 
 # === Applications ===
 cask "visual-studio-code"
-cask "warp"
 cask "docker"
 cask "1password"
 cask "google-chrome"
 cask "slack"
 cask "notion"
+cask "raindropio"
+cask "raycast"
+cask "maccy"
 
 # === Fonts ===
 cask "font-hack-nerd-font"
