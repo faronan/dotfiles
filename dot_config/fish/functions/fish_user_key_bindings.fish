@@ -3,10 +3,6 @@
 # ===========================================
 
 function fish_user_key_bindings
-    # Enter key: show ls + git status on empty line
-    bind \r '__fish_enter_command'
-    bind -M insert \r '__fish_enter_command'
-
     # fzf integration
     if type -q fzf
         # Ctrl+R: history search
