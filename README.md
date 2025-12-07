@@ -7,6 +7,7 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | カテゴリ | ツール |
 |----------|--------|
 | シェル | Fish Shell 4.0+ |
+| Fishプラグイン | Fisher (autopair.fish) |
 | dotfile管理 | chezmoi |
 | プロンプト | Starship |
 | バージョン管理 | mise |
@@ -112,6 +113,7 @@ export PATH="$HOME/bin:$PATH"
 ├── dot_config/
 │   ├── fish/
 │   │   ├── config.fish      # メイン設定
+│   │   ├── fish_plugins     # Fisherプラグイン一覧
 │   │   ├── conf.d/          # 自動読み込み設定
 │   │   └── functions/       # カスタム関数
 │   ├── git/
@@ -159,6 +161,7 @@ git push
 |-----------|------|
 | Homebrew インストール | Homebrewが未インストールの場合 |
 | パッケージインストール | Brewfileからツール・アプリをインストール |
+| Fisher インストール | Fishプラグインマネージャー + autopair.fish |
 | Fish シェル設定 | デフォルトシェルをFishに変更（sudo必要） |
 | macOS 設定 | キーリピート高速化、Finder設定、Dock自動非表示など |
 | SSH ローカル設定 | `~/.ssh/local.config` を初回作成（マシン固有のホスト用） |
