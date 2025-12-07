@@ -17,8 +17,7 @@ function __fish_enter_command
             git status -sb
         end
 
-        # プロンプトを再表示
-        commandline -f repaint-mode
+        echo
     else
         # Execute the command
         commandline -f execute
