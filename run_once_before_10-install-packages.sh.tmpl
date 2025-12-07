@@ -7,6 +7,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Brewfileからインストール
 if [ -f "{{ .chezmoi.sourceDir }}/Brewfile" ]; then
     echo "Installing packages from Brewfile..."
-    brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile" --no-lock
+    brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile"
 fi
 {{ end -}}
