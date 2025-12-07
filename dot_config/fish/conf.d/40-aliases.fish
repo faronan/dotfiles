@@ -9,7 +9,16 @@ if type -q eza
 end
 
 if type -q bat
-    alias cat 'bat'
+    # batはディレクトリを処理できないため、関数で回避
+    function cat --wraps=bat
+        for arg in $argv
+            if test -d "$arg"
+                command cat $argv
+                return
+            end
+        end
+        bat $argv
+    end
 end
 
 if type -q rg
