@@ -21,31 +21,85 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply YOUR_GITHUB_USERNAME
 ```
 
-この1行で以下がすべて自動実行されます：
+初回実行時に以下の入力を求められます：
+- 名前（Git user.name用）
+- メールアドレス（Git user.email用）
+- 仕事用マシンかどうか（y/n）
 
-1. chezmoi インストール
-2. Homebrew インストール
-3. Brewfile からパッケージ一括インストール
-4. dotfiles 配置
-5. macOS 設定適用
-6. Fish をデフォルトシェルに設定
+途中でHomebrew、各種パッケージ、アプリケーションがインストールされます（10-20分程度）。
+sudoパスワードの入力が数回求められます。
 
-### 注意事項
-
-- **SSH鍵**: セキュリティ上、SSH秘密鍵は管理対象外です。事前に準備してください
-  ```bash
-  ssh-keygen -t ed25519 -C "your_email@example.com"
-  # → GitHubに公開鍵を登録
-  ```
-- **初回入力**: `chezmoi init` 時に名前・メール・仕事用マシンかどうかを聞かれます
-- **シェル再起動**: 適用後、ターミナルを再起動するとFishが有効になります
-
-### 適用前に確認したい場合
+**適用前に変更内容を確認したい場合：**
 
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init YOUR_GITHUB_USERNAME
-chezmoi diff    # 変更内容を確認
-chezmoi apply   # 適用
+~/bin/chezmoi diff    # 変更内容を確認
+~/bin/chezmoi apply -v
+```
+
+### セットアップ後の手順
+
+#### 1. ターミナルを再起動
+
+Fishシェルを有効にするため、ターミナルアプリを完全に終了して再度開いてください。
+
+#### 2. ターミナルのフォント設定
+
+アイコンを正しく表示するため、Nerd Fontを設定します。
+
+**Terminal.appの場合：**
+1. ターミナル → 設定 → プロファイル
+2. フォント → 変更...
+3. 「Hack Nerd Font」または「FiraCode Nerd Font」を選択
+
+**VS Codeターミナル：** 設定済み（自動適用）
+
+#### 3. 開発ツールのインストール
+
+Fishシェル内で実行：
+
+```bash
+mise install   # Node.js (LTS), Python 3.12 をインストール
+```
+
+#### 4. SSH鍵の設定（git push時に必要）
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+# GitHubに公開鍵を登録: https://github.com/settings/keys
+```
+
+#### 5. 不要ファイルの削除（任意）
+
+```bash
+rm -rf ~/.zsh_sessions ~/.zsh_history
+```
+
+#### 6. 再ログイン（推奨）
+
+一部のmacOS設定（Dock、Finderなど）は再ログインまたは再起動で完全に反映されます。
+
+## トラブルシューティング
+
+### 初期設定の入力画面が表示されずに終了した場合
+
+名前・メール・仕事用マシンの入力を求められずに終了した場合：
+
+```bash
+~/bin/chezmoi init --prompt
+~/bin/chezmoi apply -v
+```
+
+### chezmoiコマンドが見つからない
+
+`get.chezmoi.io` は `~/bin/` にインストールします。セットアップ後に `chezmoi` コマンドを使うには：
+
+```bash
+# 方法1: 絶対パスで実行
+~/bin/chezmoi apply -v
+
+# 方法2: PATHを通す（Fish適用後は不要）
+export PATH="$HOME/bin:$PATH"
 ```
 
 ## ディレクトリ構成
@@ -97,16 +151,6 @@ git commit -m "update fish config"
 git push
 ```
 
-## カスタマイズ
-
-初回 `chezmoi init` 時に以下の情報を入力します：
-
-- 名前（Git用）
-- メールアドレス
-- 仕事用マシンかどうか
-
-これらの情報は `~/.config/chezmoi/chezmoi.toml` に保存され、テンプレートファイルで使用されます。
-
 ## 自動設定
 
 セットアップ時に以下が自動的に実行されます：
@@ -115,7 +159,7 @@ git push
 |-----------|------|
 | Homebrew インストール | Homebrewが未インストールの場合 |
 | パッケージインストール | Brewfileからツール・アプリをインストール |
-| Fish シェル設定 | デフォルトシェルをFishに変更 |
+| Fish シェル設定 | デフォルトシェルをFishに変更（sudo必要） |
 | macOS 設定 | キーリピート高速化、Finder設定、Dock自動非表示など |
 | SSH ローカル設定 | `~/.ssh/local.config` を初回作成（マシン固有のホスト用） |
 
