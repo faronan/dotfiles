@@ -15,33 +15,37 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 
 ## セットアップ
 
-### 新規マシン（完全自動）
+### 新規マシン
 
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply YOUR_GITHUB_USERNAME
 ```
 
-### 手動セットアップ
+この1行で以下がすべて自動実行されます：
+
+1. chezmoi インストール
+2. Homebrew インストール
+3. Brewfile からパッケージ一括インストール
+4. dotfiles 配置
+5. macOS 設定適用
+6. Fish をデフォルトシェルに設定
+
+### 注意事項
+
+- **SSH鍵**: セキュリティ上、SSH秘密鍵は管理対象外です。事前に準備してください
+  ```bash
+  ssh-keygen -t ed25519 -C "your_email@example.com"
+  # → GitHubに公開鍵を登録
+  ```
+- **初回入力**: `chezmoi init` 時に名前・メール・仕事用マシンかどうかを聞かれます
+- **シェル再起動**: 適用後、ターミナルを再起動するとFishが有効になります
+
+### 適用前に確認したい場合
 
 ```bash
-# 1. Homebrewインストール
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# 2. chezmoiインストール
-brew install chezmoi
-
-# 3. dotfilesをclone
-chezmoi init YOUR_GITHUB_USERNAME
-
-# 4. 差分確認
-chezmoi diff
-
-# 5. 適用
-chezmoi apply
-
-# 6. シェル再起動
-exec fish
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init YOUR_GITHUB_USERNAME
+chezmoi diff    # 変更内容を確認
+chezmoi apply   # 適用
 ```
 
 ## ディレクトリ構成
