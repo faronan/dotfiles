@@ -1,6 +1,3 @@
-# Taps
-tap "homebrew/bundle"
-
 # === Shell ===
 brew "fish"
 brew "starship"
