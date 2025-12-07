@@ -23,7 +23,7 @@ brew "ghq"
 
 # === Applications ===
 cask "visual-studio-code"
-cask "docker"
+cask "docker-desktop"
 cask "1password"
 cask "google-chrome"
 cask "slack"
