@@ -1,0 +1,27 @@
+{
+  // ===========================================
+  // VSCode Python Extensions
+  // ===========================================
+  // Source of truth for vscode-install-python command.
+  // These are DISABLED globally, ENABLED per workspace.
+
+  "recommendations": [
+    // --- Lint / Type Check ---
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+
+    // --- Notebook / Data ---
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+
+    // --- Data Visualization ---
+    "mechatroner.rainbow-csv"
+  ],
+
+  "unwantedRecommendations": [
+    "dbaeumer.vscode-eslint",
+    "dsznajder.es7-react-js-snippets"
+  ]
+}

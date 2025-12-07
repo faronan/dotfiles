@@ -1,0 +1,33 @@
+{
+  // ===========================================
+  // VSCode Common Base Extensions
+  // ===========================================
+  // Source of truth for vscode-install-base command.
+  // Keep minimal (~10 extensions) for performance.
+
+  "recommendations": [
+    // --- Git & Version Control ---
+    "eamodio.gitlens",
+
+    // --- Code Readability ---
+    "oderwat.indent-rainbow",
+    "usernamehw.errorlens",
+    "mosapride.zenkaku",
+
+    // --- Visual Theme ---
+    "pkief.material-icon-theme",
+
+    // --- Formatting (with requireConfig=true in settings) ---
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+
+    // --- Productivity ---
+    "gruntfuggly.todo-tree",
+    "streetsidesoftware.code-spell-checker",
+
+    // --- Documentation ---
+    "yzhang.markdown-all-in-one"
+  ],
+
+  "unwantedRecommendations": []
+}

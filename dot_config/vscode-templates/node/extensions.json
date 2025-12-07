@@ -1,0 +1,27 @@
+{
+  // ===========================================
+  // VSCode Node.js/TypeScript Extensions
+  // ===========================================
+  // Source of truth for vscode-install-node command.
+  // These are DISABLED globally, ENABLED per workspace.
+
+  "recommendations": [
+    // --- Lint / Format ---
+    "dbaeumer.vscode-eslint",
+
+    // --- IntelliSense / Autocomplete ---
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+
+    // --- HTML/JSX ---
+    "formulahendry.auto-rename-tag",
+
+    // --- API Development ---
+    "humao.rest-client"
+  ],
+
+  "unwantedRecommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ]
+}

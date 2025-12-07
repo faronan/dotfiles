@@ -14,6 +14,48 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | Pythonパッケージ | uv |
 | CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta |
 
+## VSCode拡張管理（ハイブリッド運用）
+
+**運用方針**: 共通ベースはグローバル有効、言語別の重い拡張はWorkspace単位でEnable。
+
+### セットアップ
+
+```bash
+# Step 1: 共通ベース（グローバル有効）
+vscode-install-base
+
+# Step 2: 言語別拡張（インストール後、グローバルでDisable）
+vscode-install-node     # Node.js用
+vscode-install-python   # Python用
+```
+
+### プロジェクトでの使用
+
+```bash
+# プロジェクトに推奨拡張を追加
+cd your-project
+vscode-init-project node    # または python
+
+# VSCodeでプロジェクトを開き、言語別拡張を Enable (Workspace)
+```
+
+### 共通ベース拡張（グローバル有効・10個）
+
+| 拡張 | 用途 |
+|------|------|
+| GitLens | Git blame/履歴 |
+| indent-rainbow | インデント可視化 |
+| Error Lens | エラー/警告インライン表示 |
+| zenkaku | 全角文字ハイライト |
+| Material Icon Theme | ファイルアイコン |
+| Prettier | フォーマッタ |
+| EditorConfig | エディタ共通設定 |
+| Todo Tree | TODO集約 |
+| Code Spell Checker | スペルチェック |
+| Markdown All in One | Markdown編集 |
+
+詳細・運用ルールは `~/.config/vscode-templates/README.md` を参照。
+
 ## セットアップ
 
 ### 新規マシン
@@ -123,7 +165,11 @@ export PATH="$HOME/bin:$PATH"
 │   ├── bat/config           # bat設定
 │   ├── ripgrep/config       # ripgrep設定
 │   ├── mise/config.toml     # mise設定
-│   └── starship.toml        # プロンプト設定
+│   ├── starship.toml        # プロンプト設定
+│   └── vscode-templates/    # VSCode拡張テンプレート
+│       ├── base/            # 共通ベース拡張
+│       ├── node/            # Node.js用拡張
+│       └── python/          # Python用拡張
 ├── dot_editorconfig         # エディタ共通設定
 ├── dot_hushlogin            # ターミナルのLast login非表示
 ├── private_dot_ssh/

@@ -125,6 +125,9 @@
   "gitlens.ai.vscode.model": "copilot:gpt-4o",
 
   // Prettier
+  // Only format when .prettierrc exists (prevents unintended formatting)
+  "prettier.requireConfig": true,
+
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -181,6 +184,23 @@
     "json",
     "jsonc"
   ],
+
+  // Material Icon Theme
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.theme": "classic",
+
+  // Error Lens
+  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
+  "errorLens.delay": 500,
+
+  // Todo Tree
+  "todo-tree.general.tags": ["TODO", "FIXME", "HACK", "XXX", "NOTE"],
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "tag",
+    "foreground": "#000000",
+    "background": "#FFEB3B"
+  },
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
 
   // Claude Code
   "claudeCode.preferredLocation": "panel",
