@@ -1,0 +1,44 @@
+# ===========================================
+# Ghostty Configuration
+# ===========================================
+# Docs: https://ghostty.org/docs/config/reference
+# Reload: Cmd + Shift + , (macOS)
+
+# --- Font ---
+# Nerd Font (Brewfile: font-hack-nerd-font, font-fira-code-nerd-font)
+font-family = "Hack Nerd Font"
+font-size = 14
+font-thicken = true
+
+# Disable discretionary ligatures (avoid Japanese display issues)
+font-feature = -dlig
+
+# --- Theme ---
+# Auto switch based on OS appearance
+# Available themes: ghostty +list-themes
+theme = light:catppuccin-latte,dark:catppuccin-mocha
+
+# --- Window ---
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+window-save-state = always
+
+# --- Cursor ---
+cursor-style = block
+cursor-style-blink = false
+
+# --- Mouse ---
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+# --- Clipboard ---
+copy-on-select = clipboard
+
+# --- macOS Specific ---
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+
+# --- Shell Integration ---
+# Fish shell integration is automatic (no config needed)
+# Manual: shell-integration = fish

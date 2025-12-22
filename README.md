@@ -6,6 +6,7 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 
 | カテゴリ | ツール |
 |----------|--------|
+| ターミナル | Ghostty (GPU加速, ネイティブUI) |
 | シェル | Fish Shell 4.0+ |
 | Fishプラグイン | Fisher (autopair.fish) |
 | dotfile管理 | chezmoi |
@@ -82,15 +83,32 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init YOUR_GITHUB_USERNAME
 
 ### セットアップ後の手順
 
-#### 1. ターミナルを再起動
+#### 1. Ghosttyを起動
 
-Fishシェルを有効にするため、ターミナルアプリを完全に終了して再度開いてください。
+セットアップでインストールされたGhosttyを起動してください。
 
-#### 2. ターミナルのフォント設定
+- Nerd Fontは設定済み（Hack Nerd Font）
+- Fish shell統合は自動で有効
+- テーマはOS設定に連動（ライト/ダーク自動切り替え）
 
-アイコンを正しく表示するため、Nerd Fontを設定します。
+**設定の確認・変更:**
+```bash
+# 設定ファイルを開く
+$EDITOR ~/.config/ghostty/config
 
-**Terminal.appの場合：**
+# 利用可能なテーマ一覧
+ghostty +list-themes
+
+# 利用可能なフォント一覧
+ghostty +list-fonts
+
+# 設定を即座にリロード: Cmd + Shift + ,
+```
+
+#### 2. （任意）Terminal.appを使う場合
+
+Ghosttyを使わずTerminal.appを使う場合は、Nerd Fontを手動設定します：
+
 1. ターミナル → 設定 → プロファイル
 2. フォント → 変更...
 3. 「Hack Nerd Font」または「FiraCode Nerd Font」を選択
@@ -162,6 +180,7 @@ export PATH="$HOME/bin:$PATH"
 │   │   ├── config.tmpl      # Git設定（テンプレート）
 │   │   ├── ignore           # グローバルgitignore
 │   │   └── commit_template  # コミットメッセージテンプレート
+│   ├── ghostty/config       # Ghostty設定
 │   ├── bat/config           # bat設定
 │   ├── ripgrep/config       # ripgrep設定
 │   ├── mise/config.toml     # mise設定

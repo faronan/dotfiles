@@ -21,6 +21,9 @@ brew "httpie"
 brew "tree"
 brew "ghq"
 
+# === Terminal ===
+cask "ghostty"
+
 # === Applications ===
 cask "visual-studio-code"
 cask "docker-desktop"
