@@ -6,6 +6,7 @@ brew "starship"
 brew "mise"
 brew "uv"
 brew "gh"
+brew "biome"  # Fast formatter/linter for JS/TS/JSON/CSS/HTML
 
 # === Modern CLI Tools ===
 brew "eza"

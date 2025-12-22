@@ -17,8 +17,12 @@
     // --- Visual Theme ---
     "pkief.material-icon-theme",
 
-    // --- Formatting (with requireConfig=true in settings) ---
+    // --- Formatting & Linting ---
+    // Biome: Primary (JS/TS/JSON/CSS/HTML/GraphQL) - Fast, all-in-one
+    "biomejs.biome",
+    // Prettier: Secondary (Markdown/YAML/SCSS) - Biome未対応の言語用
     "esbenp.prettier-vscode",
+    // EditorConfig: Universal editor settings
     "editorconfig.editorconfig",
 
     // --- Productivity ---
@@ -29,5 +33,8 @@
     "yzhang.markdown-all-in-one"
   ],
 
-  "unwantedRecommendations": []
+  "unwantedRecommendations": [
+    // ESLint is replaced by Biome for JS/TS linting
+    "dbaeumer.vscode-eslint"
+  ]
 }

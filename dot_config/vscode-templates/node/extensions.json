@@ -4,11 +4,11 @@
   // ===========================================
   // Source of truth for vscode-install-node command.
   // These are DISABLED globally, ENABLED per workspace.
+  //
+  // Note: Biome (formatter/linter) is included in base extensions.
+  // ESLint is no longer needed for JS/TS projects.
 
   "recommendations": [
-    // --- Lint / Format ---
-    "dbaeumer.vscode-eslint",
-
     // --- IntelliSense / Autocomplete ---
     "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense",
@@ -22,6 +22,8 @@
 
   "unwantedRecommendations": [
     "ms-python.python",
-    "ms-python.vscode-pylance"
+    "ms-python.vscode-pylance",
+    // ESLint replaced by Biome
+    "dbaeumer.vscode-eslint"
   ]
 }

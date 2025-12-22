@@ -13,6 +13,7 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | プロンプト | Starship |
 | バージョン管理 | mise |
 | Pythonパッケージ | uv |
+| フォーマッタ/リンター | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python) |
 | CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta |
 
 ## VSCode拡張管理（ハイブリッド運用）
@@ -40,7 +41,7 @@ vscode-init-project node    # または python
 # VSCodeでプロジェクトを開き、言語別拡張を Enable (Workspace)
 ```
 
-### 共通ベース拡張（グローバル有効・10個）
+### 共通ベース拡張（グローバル有効・11個）
 
 | 拡張 | 用途 |
 |------|------|
@@ -49,11 +50,14 @@ vscode-init-project node    # または python
 | Error Lens | エラー/警告インライン表示 |
 | zenkaku | 全角文字ハイライト |
 | Material Icon Theme | ファイルアイコン |
-| Prettier | フォーマッタ |
+| Biome | フォーマッタ/リンター（JS/TS/JSON/CSS/HTML） |
+| Prettier | フォーマッタ（Markdown/YAML/SCSS） |
 | EditorConfig | エディタ共通設定 |
 | Todo Tree | TODO集約 |
 | Code Spell Checker | スペルチェック |
 | Markdown All in One | Markdown編集 |
+
+> **Note**: Biomeは高速なRust製ツールでJS/TS/JSON/CSS/HTMLを担当。Biome未対応のMarkdown/YAML/SCSSはPrettierがカバー。
 
 詳細・運用ルールは `~/.config/vscode-templates/README.md` を参照。
 
