@@ -85,6 +85,33 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init YOUR_GITHUB_USERNAME
 ~/bin/chezmoi apply -v
 ```
 
+### 既存マシンでの更新
+
+dotfilesリポジトリに変更をpushした後、既にセットアップ済みのマシンで最新を反映するには：
+
+```bash
+chezmoi update
+```
+
+これは内部で `git pull` + `chezmoi apply` を実行します。
+
+**変更内容を確認してから適用したい場合：**
+
+```bash
+chezmoi git pull
+chezmoi diff          # 変更内容を確認
+chezmoi apply -v
+```
+
+**ローカルの状態を完全にリセットしたい場合：**
+
+```bash
+rm -rf ~/.local/share/chezmoi
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply YOUR_GITHUB_USERNAME
+```
+
+> **Note**: `chezmoi init` は初回セットアップ用です。一度実行すると `~/.local/share/chezmoi` にソースがクローンされるため、再度 `init` してもリモートの更新は反映されません。継続的な更新には `chezmoi update` を使用してください。
+
 ### セットアップ後の手順
 
 #### 1. Ghosttyを起動
