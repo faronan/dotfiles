@@ -17,7 +17,7 @@ font-feature = -dlig
 # --- Theme ---
 # Auto switch based on OS appearance
 # Available themes: ghostty +list-themes
-theme = light:catppuccin-latte,dark:catppuccin-mocha
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 
 # --- Window ---
 window-padding-x = 8
