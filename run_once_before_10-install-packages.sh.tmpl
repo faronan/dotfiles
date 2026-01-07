@@ -7,6 +7,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Brewfileからインストール
 if [ -f "{{ .chezmoi.sourceDir }}/Brewfile" ]; then
     echo "Installing packages from Brewfile..."
-    brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile"
+    brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile" --no-upgrade || {
+        echo "⚠️  一部のパッケージのインストールに失敗しました"
+        echo "後で再試行: brew bundle install --file=~/.local/share/chezmoi/Brewfile"
+    }
 fi
 {{ end -}}
