@@ -53,3 +53,8 @@ quick-terminal-animation-duration = 0.1
 # --- Shell Integration ---
 # Fish shell integration is automatic
 shell-integration-features = cursor,sudo,title
+
+# --- Claude Code Keybindings ---
+# Use Shift+Enter and Cmd+Enter for newline in Claude Code
+keybind = shift+enter=text:\n
+keybind = super+enter=text:\n
