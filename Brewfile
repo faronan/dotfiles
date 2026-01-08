@@ -21,6 +21,14 @@ brew "yq"
 brew "httpie"
 brew "tree"
 brew "ghq"
+brew "atuin"  # Shell history with SQLite, sync, and search
+
+# === File Manager ===
+brew "yazi"              # TUI file manager
+brew "ffmpegthumbnailer" # Video thumbnails for yazi
+brew "unar"              # Archive preview for yazi
+brew "poppler"           # PDF preview for yazi
+brew "imagemagick"       # Image processing for yazi
 
 # === Terminal ===
 cask "ghostty"
