@@ -5,9 +5,7 @@
 function fish_user_key_bindings
     # fzf integration
     if type -q fzf
-        # Ctrl+R: history search
-        bind \cr '__fzf_history_search'
-        bind -M insert \cr '__fzf_history_search'
+        # Ctrl+R: Atuin に移行（60-atuin.fish で設定）
 
         # Ctrl+G: ghq repository search
         if type -q ghq
