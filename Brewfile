@@ -4,7 +4,6 @@ brew "starship"
 
 # === Development Tools ===
 brew "mise"
-brew "uv"
 brew "gh"
 brew "biome"  # Fast formatter/linter for JS/TS/JSON/CSS/HTML
 
