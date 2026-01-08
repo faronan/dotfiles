@@ -14,7 +14,7 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | バージョン管理 | mise |
 | Pythonパッケージ | uv |
 | フォーマッタ/リンター | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python) |
-| CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta |
+| CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq |
 
 ## VSCode拡張管理（ハイブリッド運用）
 
