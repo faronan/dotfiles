@@ -2,7 +2,7 @@
 # https://github.com/sharkdp/bat
 
 # Theme
---theme="Dracula"
+--theme="Catppuccin Latte"
 
 # Show line numbers
 --style="numbers,changes,header,grid"
