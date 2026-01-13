@@ -1,0 +1,30 @@
+// ===========================================
+// Dev Layout: yazi + terminal + Claude Code
+// ===========================================
+// Usage: zellij --layout dev
+//
+// ┌──────────┬─────────────────────┐
+// │  yazi    │                     │
+// │  (左上)   │    Claude Code      │
+// ├──────────┤      (右側)          │
+// │ terminal │                     │
+// │  (左下)   │                     │
+// └──────────┴─────────────────────┘
+
+layout {
+    pane size="40%" split_direction="vertical" {
+        pane size="50%" {
+            command "yazi"
+            name "files"
+            close_on_exit false
+        }
+        pane size="50%" {
+            name "terminal"
+        }
+    }
+    pane size="60%" {
+        command "claude"
+        name "claude"
+        close_on_exit false
+    }
+}

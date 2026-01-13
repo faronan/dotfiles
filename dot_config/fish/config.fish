@@ -14,3 +14,9 @@ set -g fish_greeting
 
 # Starship prompt
 starship init fish | source
+
+# Zellij aliases
+abbr -a zj "zellij"
+abbr -a zd "zellij --layout dev"
+abbr -a zw "zellij -s work --layout dev"
+abbr -a za "zellij attach"

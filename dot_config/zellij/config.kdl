@@ -1,0 +1,134 @@
+// ===========================================
+// Zellij Configuration
+// ===========================================
+// Docs: https://zellij.dev/documentation/
+
+// --- Theme ---
+theme "catppuccin-mocha"
+
+// --- Behavior ---
+// Unlock-First mode: Claude Code/Neovim互換
+// デフォルトはロック状態、Ctrl+Gでアンロック
+keybinds clear-defaults=true {
+    locked {
+        bind "Ctrl g" { SwitchToMode "Normal"; }
+    }
+
+    normal {
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Esc" { SwitchToMode "Locked"; }
+
+        // モード切替
+        bind "p" { SwitchToMode "Pane"; }
+        bind "t" { SwitchToMode "Tab"; }
+        bind "r" { SwitchToMode "Resize"; }
+        bind "s" { SwitchToMode "Scroll"; }
+        bind "o" { SwitchToMode "Session"; }
+
+        // クイックアクション
+        bind "n" { NewPane; SwitchToMode "Locked"; }
+        bind "d" { NewPane "Down"; SwitchToMode "Locked"; }
+        bind "v" { NewPane "Right"; SwitchToMode "Locked"; }
+        bind "x" { CloseFocus; SwitchToMode "Locked"; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
+        bind "w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
+
+        // ペイン移動
+        bind "h" { MoveFocus "Left"; }
+        bind "j" { MoveFocus "Down"; }
+        bind "k" { MoveFocus "Up"; }
+        bind "l" { MoveFocus "Right"; }
+
+        // タブ移動
+        bind "1" { GoToTab 1; SwitchToMode "Locked"; }
+        bind "2" { GoToTab 2; SwitchToMode "Locked"; }
+        bind "3" { GoToTab 3; SwitchToMode "Locked"; }
+
+        bind "q" { Quit; }
+    }
+
+    pane {
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+        bind "h" { MoveFocus "Left"; }
+        bind "j" { MoveFocus "Down"; }
+        bind "k" { MoveFocus "Up"; }
+        bind "l" { MoveFocus "Right"; }
+        bind "n" { NewPane; SwitchToMode "Locked"; }
+        bind "d" { NewPane "Down"; SwitchToMode "Locked"; }
+        bind "v" { NewPane "Right"; SwitchToMode "Locked"; }
+        bind "x" { CloseFocus; SwitchToMode "Locked"; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
+    }
+
+    tab {
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+        bind "h" { GoToPreviousTab; }
+        bind "l" { GoToNextTab; }
+        bind "n" { NewTab; SwitchToMode "Locked"; }
+        bind "x" { CloseTab; SwitchToMode "Locked"; }
+        bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+    }
+
+    resize {
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+        bind "h" { Resize "Increase Left"; }
+        bind "j" { Resize "Increase Down"; }
+        bind "k" { Resize "Increase Up"; }
+        bind "l" { Resize "Increase Right"; }
+        bind "=" { Resize "Increase"; }
+        bind "-" { Resize "Decrease"; }
+    }
+
+    scroll {
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+        bind "j" { ScrollDown; }
+        bind "k" { ScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+    }
+
+    session {
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+        bind "d" { Detach; }
+    }
+
+    renametab {
+        bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
+        bind "Enter" { SwitchToMode "Locked"; }
+    }
+
+    // Alt+矢印: 全モードでペイン移動
+    shared_except "locked" {
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt l" { MoveFocus "Right"; }
+    }
+
+    shared_among "locked" {
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt l" { MoveFocus "Right"; }
+    }
+}
+
+// --- UI ---
+pane_frames false
+simplified_ui true
+default_mode "locked"
+
+// --- Session ---
+session_serialization true
+serialize_pane_viewport true
+
+// --- Other ---
+copy_on_select true
+scrollback_lines 10000
+mouse_mode true
+default_layout "default"

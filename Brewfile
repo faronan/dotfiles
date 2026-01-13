@@ -30,6 +30,7 @@ brew "poppler"           # PDF preview for yazi
 brew "imagemagick"       # Image processing for yazi
 
 # === Terminal ===
+brew "zellij"            # Terminal workspace
 cask "ghostty"
 
 # === Applications ===
