@@ -1,5 +1,5 @@
 # Yazi file manager configuration
 # https://yazi-rs.github.io/docs/configuration/yazi
 
-[manager]
+[mgr]
 show_hidden = true
