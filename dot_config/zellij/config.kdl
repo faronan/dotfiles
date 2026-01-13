@@ -122,6 +122,7 @@ keybinds clear-defaults=true {
 pane_frames false
 simplified_ui true
 default_mode "locked"
+show_startup_tips false
 
 // --- Session ---
 session_serialization true
