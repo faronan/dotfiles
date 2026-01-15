@@ -15,6 +15,36 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | Pythonパッケージ | uv |
 | フォーマッタ/リンター | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python) |
 | CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq |
+| ターミナルマルチプレクサ | Zellij |
+
+## Zellij
+
+開発用レイアウトが用意されています：
+
+```bash
+zellij --layout dev
+```
+
+```
+┌──────────┬─────────────────────┐
+│  yazi    │                     │
+│  (左上)   │    Claude Code      │
+├──────────┤      (右側)          │
+│ terminal │                     │
+│  (左下)   │                     │
+└──────────┴─────────────────────┘
+```
+
+### ⚠️ 既知の問題 (2026/01/15時点)
+
+Zellij + Claude Code で**日本語入力(IME)を使用すると、変換候補ウィンドウが正しい位置に表示されない**問題があります。
+
+| 原因 | Issue |
+|------|-------|
+| Claude Code: TUIの疑似カーソルと実カーソル位置の不一致 | [anthropics/claude-code#16372](https://github.com/anthropics/claude-code/issues/16372) |
+| Zellij: CJK文字のカーソル位置ずれ | [zellij-org/zellij#1034](https://github.com/zellij-org/zellij/issues/1034) |
+
+**回避策**: 日本語入力が必要な場合は、Zellij 外で直接 `claude` を起動するか、tmux を使用してください。
 
 ## VSCode拡張管理（ハイブリッド運用）
 
