@@ -35,10 +35,18 @@
   interactive = auto
   grep = auto
 
+[interactive]
+  diffFilter = delta --color-only
+
+[pager]
+  blame = delta
+
 [delta]
   navigate = true
   side-by-side = true
   line-numbers = true
+  hyperlinks = true
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 
 [alias]
   st = status
