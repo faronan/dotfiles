@@ -15,6 +15,13 @@ font-thicken = true
 font-feature = -calt
 font-feature = -dlig
 
+# --- Visibility ---
+alpha-blending = linear
+
+# --- Background ---
+background-opacity = 0.9
+background-blur-radius = 20
+
 # --- Theme ---
 # Auto switch based on OS appearance
 # Available themes: ghostty +list-themes
@@ -42,7 +49,7 @@ copy-on-select = clipboard
 clipboard-trim-trailing-spaces = true
 
 # --- macOS Specific ---
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
 macos-option-as-alt = true
 
 # --- Quick Terminal ---
