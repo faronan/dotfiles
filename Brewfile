@@ -47,3 +47,4 @@ cask "maccy"
 # === Fonts ===
 cask "font-hack-nerd-font"
 cask "font-fira-code-nerd-font"
+cask "font-hackgen-nerd"  # Japanese + Nerd Font (HackGen Console NF)

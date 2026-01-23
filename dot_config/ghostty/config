@@ -5,8 +5,9 @@
 # Reload: Cmd + Shift + , (macOS)
 
 # --- Font ---
-# Nerd Font (Brewfile: font-hack-nerd-font, font-fira-code-nerd-font)
-font-family = "Hack Nerd Font"
+# Japanese + Nerd Font (Brewfile: font-hackgen-nerd)
+# HackGen = Hack + GenJyuuGothic (Japanese)
+font-family = "HackGen Console NF"
 font-size = 14
 font-thicken = true
 
