@@ -49,7 +49,7 @@ copy-on-select = clipboard
 clipboard-trim-trailing-spaces = true
 
 # --- macOS Specific ---
-macos-titlebar-style = hidden
+macos-titlebar-style = transparent
 macos-option-as-alt = true
 
 # --- Quick Terminal ---
