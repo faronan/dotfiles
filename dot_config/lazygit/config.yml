@@ -1,0 +1,29 @@
+# lazygit configuration
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+
+gui:
+  # 日本語UI
+  language: "ja"
+  # マウス操作を有効化
+  mouseEvents: true
+  # サイドパネルの幅
+  sidePanelWidth: 0.3333
+  # Nerd Font アイコンを表示
+  nerdFontsVersion: "3"
+  # ファイルをツリー表示
+  showFileTree: true
+  # テーマ設定
+  theme:
+    border: "rounded"
+
+git:
+  paging:
+    # delta を pager として使用
+    # --paging=never: lazygit 自身がページングを処理するため
+    # --side-by-side: 差分を左右に並べて表示
+    # --line-numbers: 行番号を表示
+    pager: delta --paging=never --side-by-side --line-numbers
+    colorArg: always
+  # プルは rebase で（既存の git 設定と統一）
+  pull:
+    mode: "rebase"

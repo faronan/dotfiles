@@ -5,6 +5,7 @@ brew "starship"
 # === Development Tools ===
 brew "mise"
 brew "gh"
+brew "lazygit"  # Terminal UI for git commands
 brew "biome"  # Fast formatter/linter for JS/TS/JSON/CSS/HTML
 
 # === Modern CLI Tools ===

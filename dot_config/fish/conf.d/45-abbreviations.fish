@@ -41,6 +41,7 @@ if status is-interactive
     abbr -a gswc 'git switch -c'
     abbr -a gst 'git stash'
     abbr -a gstp 'git stash pop'
+    abbr -a lg lazygit
 
     # ===========================================
     # Node.js / pnpm
