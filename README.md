@@ -14,7 +14,7 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | バージョン管理 | mise |
 | Pythonパッケージ | uv |
 | フォーマッタ/リンター | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python) |
-| CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq |
+| CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq, lazygit |
 | ターミナルマルチプレクサ | Zellij |
 
 ## Zellij
@@ -176,12 +176,13 @@ Ghosttyを使わずTerminal.appを使う場合は、Nerd Fontを手動設定し�
 
 **VS Codeターミナル：** 設定済み（自動適用）
 
-#### 3. 開発ツールのインストール
+#### 3. 開発ツールの確認
 
-Fishシェル内で実行：
+セットアップ時に `mise install` が自動実行されます。インストール状況を確認：
 
 ```bash
-mise install   # Node.js (LTS), Python 3.12 をインストール
+mise list      # インストール済みツールを確認
+mise install   # 不足があれば再実行
 ```
 
 #### 4. SSH鍵の設定（git push時に必要）
@@ -214,15 +215,13 @@ rm -rf ~/.zsh_sessions ~/.zsh_history
 
 ### chezmoiコマンドが見つからない
 
-`get.chezmoi.io` は `~/bin/` にインストールします。セットアップ後に `chezmoi` コマンドを使うには：
+`get.chezmoi.io` は `~/bin/` にインストールします。Fish設定が適用されるまでは絶対パスで実行してください：
 
 ```bash
-# 方法1: 絶対パスで実行
 ~/bin/chezmoi apply -v
-
-# 方法2: PATHを通す（Fish適用後は不要）
-export PATH="$HOME/bin:$PATH"
 ```
+
+Fish適用後は `~/bin` がPATHに含まれるため、`chezmoi` で直接実行できます。
 
 ## ディレクトリ構成
 
@@ -243,9 +242,12 @@ export PATH="$HOME/bin:$PATH"
 │   │   └── commit_template  # コミットメッセージテンプレート
 │   ├── ghostty/config       # Ghostty設定
 │   ├── bat/config           # bat設定
+│   ├── lazygit/config.yml   # lazygit設定
 │   ├── ripgrep/config       # ripgrep設定
 │   ├── mise/config.toml     # mise設定
 │   ├── starship.toml        # プロンプト設定
+│   ├── yazi/                # yaziファイルマネージャ設定
+│   ├── zellij/              # zellij設定・レイアウト
 │   └── vscode-templates/    # VSCode拡張テンプレート
 │       ├── base/            # 共通ベース拡張
 │       ├── node/            # Node.js用拡張
@@ -286,9 +288,9 @@ git push
 | スクリプト | 内容 |
 |-----------|------|
 | Homebrew インストール | Homebrewが未インストールの場合 |
-| パッケージインストール | Brewfileからツール・アプリをインストール |
+| パッケージインストール | Brewfileからツール・アプリをインストール（Brewfile変更時も自動実行） |
 | Fisher インストール | Fishプラグインマネージャー + autopair.fish |
-| Fish シェル設定 | デフォルトシェルをFishに変更（sudo必要） |
+| Fish シェル設定 | デフォルトシェルをFishに変更（sudo必要）+ mise install |
 | macOS 設定 | キーリピート高速化、Finder設定、Dock自動非表示など |
 | SSH ローカル設定 | `~/.ssh/local.config` を初回作成（マシン固有のホスト用） |
 
