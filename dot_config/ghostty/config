@@ -61,3 +61,6 @@ quick-terminal-animation-duration = 0.1
 # --- Shell Integration ---
 # Fish shell integration is automatic
 shell-integration-features = cursor,sudo,title
+
+# --- Notifications ---
+desktop-notifications = false
