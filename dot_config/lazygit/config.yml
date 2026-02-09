@@ -17,13 +17,13 @@ gui:
     border: "rounded"
 
 git:
-  paging:
-    # delta を pager として使用
-    # --paging=never: lazygit 自身がページングを処理するため
-    # --side-by-side: 差分を左右に並べて表示
-    # --line-numbers: 行番号を表示
-    pager: delta --paging=never --side-by-side --line-numbers
-    colorArg: always
+  pagers:
+    - # delta を pager として使用
+      # --paging=never: lazygit 自身がページングを処理するため
+      # --side-by-side: 差分を左右に並べて表示
+      # --line-numbers: 行番号を表示
+      pager: delta --paging=never --side-by-side --line-numbers
+      colorArg: always
   # プルは rebase で（既存の git 設定と統一）
   pull:
     mode: "rebase"
