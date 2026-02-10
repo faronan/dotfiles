@@ -1,0 +1,8 @@
+# Yazi keymap configuration
+# https://yazi-rs.github.io/docs/configuration/keymap
+
+[mgr]
+prepend_keymap = [
+  # bat + fzf で行を選択してクリップボードにコピー
+  { on = [ "c", "l" ], run = 'shell --block -- bat --color=always "$0" | fzf --ansi --multi | pbcopy', desc = "行を選択してコピー" },
+]
