@@ -4,5 +4,5 @@
 [mgr]
 prepend_keymap = [
   # bat + fzf で行を選択してクリップボードにコピー
-  { on = [ "c", "l" ], run = 'shell --block -- bat --color=always "$0" | fzf --ansi --multi | pbcopy', desc = "行を選択してコピー" },
+  { on = [ "c", "l" ], run = 'shell --block -- bat --plain --color=always "$0" | fzf --ansi --multi | pbcopy', desc = "行を選択してコピー" },
 ]
