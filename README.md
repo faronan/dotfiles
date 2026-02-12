@@ -192,13 +192,45 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 # GitHubに公開鍵を登録: https://github.com/settings/keys
 ```
 
-#### 5. 不要ファイルの削除（任意）
+#### 5. クラウドCLIのインストール（任意）
+
+AWS CLI / gcloud CLI は公式インストーラで管理するため、Brewfileには含まれていません。
+シェル設定（補完・abbreviations・環境変数）はdotfilesに含まれているため、インストール後すぐに使えます。
+
+**AWS CLI v2:**
+
+```bash
+# 公式ページからpkgをダウンロードしてインストール
+# https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+```
+
+**Google Cloud SDK:**
+
+```bash
+# 1. アーキテクチャに合ったtar.gzをダウンロード
+# https://cloud.google.com/sdk/docs/install-sdk?hl=ja
+
+# 2. ホームディレクトリに展開
+cd ~
+tar -xf google-cloud-cli-*.tar.gz
+
+# 3. インストールスクリプトを実行
+./google-cloud-sdk/install.sh
+# - "Modify profile to update your $PATH ...?" → No（dotfilesで設定済み）
+# - "Download and run Python 3.x installer?" → No（miseで管理済み）
+
+# 4. シェルをリロードして初期化
+exec fish
+gcloud init
+```
+
+#### 6. 不要ファイルの削除（任意）
 
 ```bash
 rm -rf ~/.zsh_sessions ~/.zsh_history
 ```
 
-#### 6. 再ログイン（推奨）
+#### 7. 再ログイン（推奨）
 
 一部のmacOS設定（Dock、Finderなど）は再ログインまたは再起動で完全に反映されます。
 
