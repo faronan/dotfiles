@@ -74,6 +74,22 @@ if status is-interactive
     abbr -a dps 'docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
 
     # ===========================================
+    # AWS CLI
+    # ===========================================
+    abbr -a awsl 'aws sso login'
+    abbr -a awsw 'aws sts get-caller-identity'
+    abbr -a awsp 'set -gx AWS_PROFILE'
+
+    # ===========================================
+    # Google Cloud SDK
+    # ===========================================
+    abbr -a gcl 'gcloud auth login'
+    abbr -a gcal 'gcloud auth application-default login'
+    abbr -a gcw 'gcloud config list'
+    abbr -a gcp 'gcloud config configurations activate'
+    abbr -a gcpl 'gcloud config configurations list'
+
+    # ===========================================
     # ナビゲーション
     # ===========================================
     abbr -a .. 'cd ..'
