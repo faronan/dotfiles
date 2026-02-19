@@ -4,6 +4,7 @@ $git_branch\
 $git_status\
 $nodejs\
 $python\
+$mise\
 $cmd_duration\
 $line_break\
 $character"""
@@ -35,6 +36,11 @@ format = "[$symbol($version )]($style)"
 min_time = 2_000
 style = "bold yellow"
 format = "[$duration]($style) "
+
+[mise]
+format = "[$symbol($version )]($style)"
+symbol = "mise "
+style = "bold blue"
 
 [character]
 success_symbol = "[❯](bold green)"
