@@ -3,3 +3,10 @@
 
 [mgr]
 show_hidden = true
+
+# git.yazi 用 fetcher
+[plugin]
+prepend_fetchers = [
+	{ id = "git", url = "*", run = "git" },
+	{ id = "git", url = "*/", run = "git" },
+]

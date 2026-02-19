@@ -1,0 +1,10 @@
+#!/bin/bash
+# package.toml hash: {{ include "dot_config/yazi/package.toml" | sha256sum }}
+set -euo pipefail
+{{ if eq .chezmoi.os "darwin" -}}
+echo "Installing Yazi plugins..."
+ya pkg install || {
+    echo "⚠️  Yaziプラグインのインストールに失敗しました"
+    echo "後で再試行: ya pkg install"
+}
+{{ end -}}

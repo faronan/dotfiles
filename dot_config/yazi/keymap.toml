@@ -5,4 +5,6 @@
 prepend_keymap = [
   # bat + fzf で行を選択してクリップボードにコピー
   { on = [ "c", "l" ], run = 'shell --block -- bat --plain --color=always "$0" | fzf --ansi --multi | pbcopy', desc = "行を選択してコピー" },
+  # diff.yazi: 選択ファイルとのdiff
+  { on = [ "<C-d>" ], run = "plugin diff", desc = "選択ファイルとのdiff" },
 ]
