@@ -22,7 +22,7 @@ if type -q bat
                 return
             end
         end
-        bat $argv
+        bat --paging=never $argv
     end
 end
 
