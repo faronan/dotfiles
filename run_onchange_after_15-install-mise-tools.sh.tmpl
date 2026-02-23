@@ -1,0 +1,11 @@
+#!/bin/bash
+# mise config hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+set -euo pipefail
+{{ if eq .chezmoi.os "darwin" -}}
+echo "Installing mise tools..."
+eval "$(/opt/homebrew/bin/brew shellenv)"
+mise install --yes || {
+    echo "⚠️  miseツールのインストールに失敗しました"
+    echo "後で再試行: mise install"
+}
+{{ end -}}
