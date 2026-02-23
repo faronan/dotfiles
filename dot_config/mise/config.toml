@@ -4,6 +4,8 @@ pnpm = "latest"
 python = "3.12"
 uv = "latest"
 ruff = "latest"
+"npm:typescript-language-server" = "latest"
+"npm:pyright" = "latest"
 
 [settings]
 experimental = true
