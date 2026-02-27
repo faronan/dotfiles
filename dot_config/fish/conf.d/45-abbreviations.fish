@@ -108,7 +108,7 @@ if status is-interactive
     # tldr (コマンドチートシート)
     abbr -a tl tldr
     abbr -a tlj 'tldr --language ja'
-    abbr -a tlu 'tldr --update'
+    abbr -a tlu 'LANG=ja_JP.UTF-8 tldr --update'
 
     # duf (ディスク容量)
     abbr -a dfl 'duf --only local'
