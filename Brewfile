@@ -23,6 +23,10 @@ brew "httpie"
 brew "tree"
 brew "ghq"
 brew "atuin"  # Shell history with SQLite, sync, and search
+brew "sd"        # sed の代替（直感的なテキスト置換）
+brew "dust"      # du の代替（ツリー+バーグラフ表示）
+brew "duf"       # df の代替（カラフルなテーブル表示）
+brew "tealdeer"  # tldr クライアント（簡潔なコマンド例）
 
 # === File Manager ===
 brew "yazi"              # TUI file manager

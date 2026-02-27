@@ -100,5 +100,16 @@ if status is-interactive
     # その他
     # ===========================================
     abbr -a reload 'exec fish'
-    abbr -a duh 'du -shc * | sort -h'
+
+    # sd (テキスト置換)
+    abbr -a sdp 'sd -p'
+    abbr -a sdf 'sd -F'
+
+    # tldr (コマンドチートシート)
+    abbr -a tl tldr
+    abbr -a tlj 'tldr --language ja'
+    abbr -a tlu 'tldr --update'
+
+    # duf (ディスク容量)
+    abbr -a dfl 'duf --only local'
 end

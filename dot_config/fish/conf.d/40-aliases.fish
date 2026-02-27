@@ -47,6 +47,21 @@ if type -q zoxide
     alias cdi zi
 end
 
+# sd (sed の代替)
+if type -q sd
+    alias sed sd
+end
+
+# dust (du の代替)
+if type -q dust
+    alias du dust
+end
+
+# duf (df の代替)
+if type -q duf
+    alias df duf
+end
+
 # ===========================================
 # macOS 固有コマンド
 # ===========================================
