@@ -6,6 +6,8 @@
   editor = vim
   pager = delta
   excludesfile = ~/.config/git/ignore
+  fsmonitor = true
+  untrackedCache = true
 
 [init]
   defaultBranch = main
@@ -16,10 +18,13 @@
 [push]
   autoSetupRemote = true
   followTags = true
+  useForceIfIncludes = true
 
 [fetch]
   prune = true
   pruneTags = true
+  all = true
+  writeCommitGraph = true
 
 [diff]
   algorithm = histogram
@@ -80,6 +85,15 @@
   unstage = reset HEAD --
   last = log -1 HEAD
   graph = log --graph --oneline --decorate --all
+
+[transfer]
+  fsckObjects = true
+
+[receive]
+  fsckObjects = true
+
+[status]
+  showUntrackedFiles = all
 
 {{ if eq .chezmoi.os "darwin" -}}
 [credential]
