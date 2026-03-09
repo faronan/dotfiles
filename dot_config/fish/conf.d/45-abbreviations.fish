@@ -112,4 +112,7 @@ if status is-interactive
 
     # duf (ディスク容量)
     abbr -a dfl 'duf --only local'
+
+    # Homebrew (パッケージ管理)
+    abbr -a bu 'brew update && brew upgrade && brew cleanup'
 end
