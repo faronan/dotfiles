@@ -18,13 +18,14 @@ set -gx FZF_DEFAULT_OPTS "\
   --style=full \
   --height=80% \
   --layout=reverse \
-  --wrap \
-  --bind 'ctrl-/:toggle-wrap'"
+  --wrap=word \
+  --bind 'ctrl-/:toggle-wrap-word'"
 
 # Ctrl+T: file search with bat preview
 if type -q bat
     set -gx FZF_CTRL_T_OPTS "\
       --preview 'bat --color=always --style=header,grid --line-range :300 {}' \
+      --preview-window 'right,50%,wrap-word' \
       --bind 'ctrl-/:toggle-preview'"
 end
 
