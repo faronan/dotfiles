@@ -3,14 +3,6 @@
 # ===========================================
 
 function __fzf_file_search
-    # Use fd if available, fallback to find
-    set -l find_cmd
-    if type -q fd
-        set find_cmd "fd --type f --hidden --exclude .git"
-    else
-        set find_cmd "command find . -type f -not -path '*/.git/*'"
-    end
-
     # Use bat for preview if available, fallback to head
     set -l preview_cmd
     if type -q bat
@@ -19,9 +11,20 @@ function __fzf_file_search
         set preview_cmd "head -100 {}"
     end
 
-    set -l selected (eval $find_cmd | fzf --height 40% --reverse --preview "$preview_cmd")
+    # Use fd if available, fallback to find
+    set -l selected
+    if type -q fd
+        set selected (fd --type f --hidden --exclude .git | fzf \
+            --preview "$preview_cmd" \
+            --preview-window 'right,50%,border-left' \
+            --ghost 'Search files...')
+    else
+        set selected (command find . -type f -not -path '*/.git/*' | fzf \
+            --preview "$preview_cmd" \
+            --ghost 'Search files...')
+    end
+
     if test -n "$selected"
-        # Insert the selected file path at cursor
         commandline -i $selected
     end
     commandline -f repaint

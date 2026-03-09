@@ -11,7 +11,10 @@ function __fzf_ghq_search
         set preview_cmd "ls -la {}"
     end
 
-    set -l selected (ghq list --full-path | fzf --height 40% --reverse --preview "$preview_cmd")
+    set -l selected (ghq list --full-path | fzf \
+        --preview "$preview_cmd" \
+        --preview-window 'right,50%' \
+        --ghost 'Search repositories...')
     if test -n "$selected"
         cd $selected
         commandline -f repaint
