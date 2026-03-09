@@ -14,6 +14,7 @@ set -g fish_greeting
 
 # Starship prompt
 starship init fish | source
+enable_transience
 
 # Zellij aliases
 abbr -a zj "zellij"
