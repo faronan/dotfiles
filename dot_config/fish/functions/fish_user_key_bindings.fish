@@ -9,12 +9,12 @@ function fish_user_key_bindings
 
         # Ctrl+G: ghq repository search
         if type -q ghq
-            bind \cg '__fzf_ghq_search'
-            bind -M insert \cg '__fzf_ghq_search'
+            bind ctrl-g '__fzf_ghq_search'
+            bind -M insert ctrl-g '__fzf_ghq_search'
         end
 
         # Ctrl+F: file search
-        bind \cf '__fzf_file_search'
-        bind -M insert \cf '__fzf_file_search'
+        bind ctrl-f '__fzf_file_search'
+        bind -M insert ctrl-f '__fzf_file_search'
     end
 end
