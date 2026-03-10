@@ -49,11 +49,11 @@ keybinds clear-defaults=true {
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
 
-        // ペイン移動
-        bind "h" { MoveFocus "Left"; }
-        bind "j" { MoveFocus "Down"; }
-        bind "k" { MoveFocus "Up"; }
-        bind "l" { MoveFocus "Right"; }
+        // ペイン移動（移動後は自動でLockedに戻る）
+        bind "h" { MoveFocus "Left"; SwitchToMode "Locked"; }
+        bind "j" { MoveFocus "Down"; SwitchToMode "Locked"; }
+        bind "k" { MoveFocus "Up"; SwitchToMode "Locked"; }
+        bind "l" { MoveFocus "Right"; SwitchToMode "Locked"; }
 
         // タブ移動
         bind "1" { GoToTab 1; SwitchToMode "Locked"; }
