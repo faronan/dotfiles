@@ -1,34 +1,21 @@
 // ===========================================
-// Dev Layout: yazi + terminal + Claude Code
+// Default Layout with zjstatus
 // ===========================================
-// Usage: zellij --layout dev
-//
-// ┌──────────┬─────────────────────┐
-// │  yazi    │                     │
-// │  (左上)   │    Claude Code      │
-// ├──────────┤      (右側)          │
-// │ terminal │                     │
-// │  (左下)   │                     │
-// └──────────┴─────────────────────┘
-//
-// ⚠️ 既知の問題 (2026/01/15時点):
-// Zellij + Claude Code で日本語入力(IME)を使用すると、
-// 変換候補ウィンドウが正しい位置に表示されない問題があります。
-// - Claude Code側: TUIの疑似カーソルと実カーソル位置の不一致
-//   https://github.com/anthropics/claude-code/issues/16372
-// - Zellij側: CJK文字のカーソル位置ずれ
-//   https://github.com/zellij-org/zellij/issues/1034
-// 回避策: 日本語入力時は Zellij 外で Claude Code を起動するか、tmux を使用
+// zjstatus: カスタマイズ可能なステータスバー
+// https://github.com/dj95/zjstatus
 
 layout {
     default_tab_template {
         // zjstatus ステータスバー (上部)
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                // --- Format ---
                 format_left  "{mode} {tabs}"
                 format_right "{session} {datetime}"
                 format_space "#[bg=#1e1e2e] "
 
+                // --- Mode Indicator ---
+                // Catppuccin Mocha colors
                 mode_locked   "#[bg=#f38ba8,fg=#1e1e2e,bold] LOCKED #[bg=#1e1e2e] "
                 mode_normal   "#[bg=#a6e3a1,fg=#1e1e2e,bold] NORMAL #[bg=#1e1e2e] "
                 mode_pane     "#[bg=#89b4fa,fg=#1e1e2e,bold] PANE #[bg=#1e1e2e] "
@@ -38,6 +25,7 @@ layout {
                 mode_session  "#[bg=#fab387,fg=#1e1e2e,bold] SESSION #[bg=#1e1e2e] "
                 mode_default_to_mode "locked"
 
+                // --- Tabs ---
                 tab_normal              "#[fg=#6c7086] {name} "
                 tab_normal_fullscreen   "#[fg=#6c7086] {name} [] "
                 tab_normal_sync         "#[fg=#6c7086] {name} <> "
@@ -45,32 +33,12 @@ layout {
                 tab_active_fullscreen   "#[fg=#89b4fa,bold] {name} [] "
                 tab_active_sync         "#[fg=#89b4fa,bold] {name} <> "
 
+                // --- Session & DateTime ---
                 datetime          "#[fg=#6c7086] {format} "
                 datetime_format   "%H:%M"
                 datetime_timezone "Asia/Tokyo"
             }
         }
         children
-    }
-
-    tab name="dev" {
-        pane split_direction="vertical" {
-            pane size="40%" {
-                pane {
-                    command "yazi"
-                    name "files"
-                    close_on_exit false
-                }
-                pane {
-                    name "terminal"
-                    focus true
-                }
-            }
-            pane size="60%" {
-                command "claude"
-                name "claude"
-                close_on_exit false
-            }
-        }
     }
 }

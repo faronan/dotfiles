@@ -6,9 +6,25 @@
 // --- Theme ---
 theme "catppuccin-mocha"
 
+// --- Plugins ---
+plugins {
+    // Claude Code/Neovim等のTUIアプリ使用時に自動でLockedモードに切替
+    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
+        triggers "nvim|vim|git|fzf|zoxide|atuin|claude|yazi|lazygit"
+        reaction_seconds "0.3"
+        print_to_log false
+        is_enabled true
+    }
+}
+
+load_plugins {
+    autolock
+}
+
 // --- Behavior ---
 // Unlock-First mode: Claude Code/Neovim互換
 // デフォルトはロック状態、Ctrl+Gでアンロック
+// autolock: TUIアプリ使用時は自動でLocked、それ以外は自動でNormal
 keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -102,12 +118,14 @@ keybinds clear-defaults=true {
         bind "Enter" { SwitchToMode "Locked"; }
     }
 
-    // Alt+矢印: 全モードでペイン移動
+    // Alt+hjkl: 全モードでペイン移動
+    // Alt+z: autolock の一時無効化/有効化トグル
     shared_except "locked" {
         bind "Alt h" { MoveFocus "Left"; }
         bind "Alt j" { MoveFocus "Down"; }
         bind "Alt k" { MoveFocus "Up"; }
         bind "Alt l" { MoveFocus "Right"; }
+        bind "Alt z" { MessagePlugin "autolock" { payload "toggle"; }; }
     }
 
     shared_among "locked" {
@@ -115,12 +133,12 @@ keybinds clear-defaults=true {
         bind "Alt j" { MoveFocus "Down"; }
         bind "Alt k" { MoveFocus "Up"; }
         bind "Alt l" { MoveFocus "Right"; }
+        bind "Alt z" { MessagePlugin "autolock" { payload "toggle"; }; }
     }
 }
 
 // --- UI ---
 pane_frames false
-simplified_ui true
 default_mode "locked"
 show_startup_tips false
 
