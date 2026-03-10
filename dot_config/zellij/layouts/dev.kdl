@@ -36,7 +36,7 @@ layout {
                 mode_resize   "#[bg=#cba6f7,fg=#1e1e2e,bold] RESIZE #[bg=#1e1e2e] "
                 mode_scroll   "#[bg=#94e2d5,fg=#1e1e2e,bold] SCROLL #[bg=#1e1e2e] "
                 mode_session  "#[bg=#fab387,fg=#1e1e2e,bold] SESSION #[bg=#1e1e2e] "
-                mode_default_to_mode "locked"
+                mode_default_to_mode "normal"
 
                 tab_normal              "#[fg=#6c7086] {name} "
                 tab_normal_fullscreen   "#[fg=#6c7086] {name} [] "

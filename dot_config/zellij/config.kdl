@@ -6,89 +6,50 @@
 // --- Theme ---
 theme "catppuccin-mocha"
 
-// --- Plugins ---
-plugins {
-    // Claude Code/Neovim等のTUIアプリ使用時に自動でLockedモードに切替
-    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
-        triggers "nvim|vim|git|fzf|zoxide|atuin|claude|yazi|lazygit|fish"
-        reaction_seconds "0.3"
-        print_to_log false
-        is_enabled true
-    }
-}
-
-load_plugins {
-    autolock
-}
-
 // --- Behavior ---
-// Unlock-First mode: Claude Code/Neovim互換
-// デフォルトはロック状態、Ctrl+Gでアンロック
-// autolock: TUIアプリ使用時は自動でLocked、それ以外は自動でNormal
+// Unlock-First mode: 全キーバインドをAlt+keyに統一
+// Normalモードがデフォルト → アプリのCtrl/単キーと衝突しない
+// Locked: Alt+gで手動切替（通常は不要）
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Alt g" { SwitchToMode "Normal"; }
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt l" { MoveFocus "Right"; }
     }
 
     normal {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Esc" { SwitchToMode "Locked"; }
+        bind "Alt g" { SwitchToMode "Locked"; }
 
-        // モード切替
-        bind "p" { SwitchToMode "Pane"; }
-        bind "t" { SwitchToMode "Tab"; }
-        bind "r" { SwitchToMode "Resize"; }
-        bind "s" { SwitchToMode "Scroll"; }
-        bind "o" { SwitchToMode "Session"; }
+        // --- ペイン操作 ---
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt l" { MoveFocus "Right"; }
+        bind "Alt n" { NewPane; }
+        bind "Alt x" { CloseFocus; }
+        bind "Alt f" { ToggleFocusFullscreen; }
+        bind "Alt w" { ToggleFloatingPanes; }
 
-        // クイックアクション
-        bind "n" { NewPane; SwitchToMode "Locked"; }
-        bind "d" { NewPane "Down"; SwitchToMode "Locked"; }
-        bind "v" { NewPane "Right"; SwitchToMode "Locked"; }
-        bind "x" { CloseFocus; SwitchToMode "Locked"; }
-        bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
-        bind "w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
+        // --- タブ操作 ---
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt t" { NewTab; }
+        bind "Alt [" { GoToPreviousTab; }
+        bind "Alt ]" { GoToNextTab; }
 
-        // ペイン移動（移動後は自動でLockedに戻る）
-        bind "h" { MoveFocus "Left"; SwitchToMode "Locked"; }
-        bind "j" { MoveFocus "Down"; SwitchToMode "Locked"; }
-        bind "k" { MoveFocus "Up"; SwitchToMode "Locked"; }
-        bind "l" { MoveFocus "Right"; SwitchToMode "Locked"; }
+        // --- サブモード（連続操作が必要なもの） ---
+        bind "Alt r" { SwitchToMode "Resize"; }
+        bind "Alt s" { SwitchToMode "Scroll"; }
+        bind "Alt o" { SwitchToMode "Session"; }
+        bind "Alt e" { SwitchToMode "RenameTab"; TabNameInput 0; }
 
-        // タブ移動
-        bind "1" { GoToTab 1; SwitchToMode "Locked"; }
-        bind "2" { GoToTab 2; SwitchToMode "Locked"; }
-        bind "3" { GoToTab 3; SwitchToMode "Locked"; }
-
-        bind "q" { Quit; }
-    }
-
-    pane {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Esc" { SwitchToMode "Normal"; }
-        bind "h" { MoveFocus "Left"; }
-        bind "j" { MoveFocus "Down"; }
-        bind "k" { MoveFocus "Up"; }
-        bind "l" { MoveFocus "Right"; }
-        bind "n" { NewPane; SwitchToMode "Locked"; }
-        bind "d" { NewPane "Down"; SwitchToMode "Locked"; }
-        bind "v" { NewPane "Right"; SwitchToMode "Locked"; }
-        bind "x" { CloseFocus; SwitchToMode "Locked"; }
-        bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
-    }
-
-    tab {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Esc" { SwitchToMode "Normal"; }
-        bind "h" { GoToPreviousTab; }
-        bind "l" { GoToNextTab; }
-        bind "n" { NewTab; SwitchToMode "Locked"; }
-        bind "x" { CloseTab; SwitchToMode "Locked"; }
-        bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Alt q" { Quit; }
     }
 
     resize {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Esc" { SwitchToMode "Normal"; }
         bind "h" { Resize "Increase Left"; }
         bind "j" { Resize "Increase Down"; }
@@ -99,7 +60,6 @@ keybinds clear-defaults=true {
     }
 
     scroll {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Esc" { SwitchToMode "Normal"; }
         bind "j" { ScrollDown; }
         bind "k" { ScrollUp; }
@@ -108,38 +68,27 @@ keybinds clear-defaults=true {
     }
 
     session {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Esc" { SwitchToMode "Normal"; }
         bind "d" { Detach; }
     }
 
     renametab {
         bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
-        bind "Enter" { SwitchToMode "Locked"; }
+        bind "Enter" { SwitchToMode "Normal"; }
     }
 
-    // Alt+hjkl: 全モードでペイン移動
-    // Alt+z: autolock の一時無効化/有効化トグル
-    shared_except "locked" {
+    // サブモードでもペイン移動可能
+    shared_except "normal" "locked" {
         bind "Alt h" { MoveFocus "Left"; }
         bind "Alt j" { MoveFocus "Down"; }
         bind "Alt k" { MoveFocus "Up"; }
         bind "Alt l" { MoveFocus "Right"; }
-        bind "Alt z" { MessagePlugin "autolock" { payload "toggle"; }; }
-    }
-
-    shared_among "locked" {
-        bind "Alt h" { MoveFocus "Left"; }
-        bind "Alt j" { MoveFocus "Down"; }
-        bind "Alt k" { MoveFocus "Up"; }
-        bind "Alt l" { MoveFocus "Right"; }
-        bind "Alt z" { MessagePlugin "autolock" { payload "toggle"; }; }
     }
 }
 
 // --- UI ---
 pane_frames false
-default_mode "locked"
+default_mode "normal"
 show_startup_tips false
 
 // --- Session ---

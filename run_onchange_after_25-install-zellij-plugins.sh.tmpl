@@ -6,15 +6,6 @@ echo "Installing Zellij plugins..."
 PLUGIN_DIR="${HOME}/.config/zellij/plugins"
 mkdir -p "${PLUGIN_DIR}"
 
-# zellij-autolock: TUIアプリ使用時の自動ロック
-if [ ! -f "${PLUGIN_DIR}/zellij-autolock.wasm" ]; then
-    echo "  Downloading zellij-autolock..."
-    curl -sSfL https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm \
-        -o "${PLUGIN_DIR}/zellij-autolock.wasm" || {
-        echo "⚠️  zellij-autolock のダウンロードに失敗しました"
-    }
-fi
-
 # zjstatus: カスタムステータスバー
 if [ ! -f "${PLUGIN_DIR}/zjstatus.wasm" ]; then
     echo "  Downloading zjstatus..."
