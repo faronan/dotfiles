@@ -10,7 +10,7 @@ theme "catppuccin-mocha"
 plugins {
     // Claude Code/Neovim等のTUIアプリ使用時に自動でLockedモードに切替
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
-        triggers "nvim|vim|git|fzf|zoxide|atuin|claude|yazi|lazygit"
+        triggers "nvim|vim|git|fzf|zoxide|atuin|claude|yazi|lazygit|fish"
         reaction_seconds "0.3"
         print_to_log false
         is_enabled true
