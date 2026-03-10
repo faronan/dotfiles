@@ -16,22 +16,21 @@ layout {
 
                 // --- Mode Indicator ---
                 // Catppuccin Mocha colors
-                mode_locked   "#[bg=#f38ba8,fg=#1e1e2e,bold] LOCKED #[bg=#1e1e2e] "
                 mode_normal   "#[bg=#a6e3a1,fg=#1e1e2e,bold] NORMAL #[bg=#1e1e2e] "
-                mode_pane     "#[bg=#89b4fa,fg=#1e1e2e,bold] PANE #[bg=#1e1e2e] "
-                mode_tab      "#[bg=#f9e2af,fg=#1e1e2e,bold] TAB #[bg=#1e1e2e] "
+                mode_locked   "#[bg=#f38ba8,fg=#1e1e2e,bold] LOCKED #[bg=#1e1e2e] "
                 mode_resize   "#[bg=#cba6f7,fg=#1e1e2e,bold] RESIZE #[bg=#1e1e2e] "
                 mode_scroll   "#[bg=#94e2d5,fg=#1e1e2e,bold] SCROLL #[bg=#1e1e2e] "
                 mode_session  "#[bg=#fab387,fg=#1e1e2e,bold] SESSION #[bg=#1e1e2e] "
+                mode_rename_tab "#[bg=#f9e2af,fg=#1e1e2e,bold] RENAME #[bg=#1e1e2e] "
                 mode_default_to_mode "normal"
 
                 // --- Tabs ---
-                tab_normal              "#[fg=#6c7086] {name} "
-                tab_normal_fullscreen   "#[fg=#6c7086] {name} [] "
-                tab_normal_sync         "#[fg=#6c7086] {name} <> "
-                tab_active              "#[fg=#89b4fa,bold] {name} "
-                tab_active_fullscreen   "#[fg=#89b4fa,bold] {name} [] "
-                tab_active_sync         "#[fg=#89b4fa,bold] {name} <> "
+                tab_normal              "#[fg=#6c7086] {index}:{name} "
+                tab_normal_fullscreen   "#[fg=#6c7086] {index}:{name} [] "
+                tab_normal_sync         "#[fg=#6c7086] {index}:{name} <> "
+                tab_active              "#[fg=#89b4fa,bold] {index}:{name} "
+                tab_active_fullscreen   "#[fg=#89b4fa,bold] {index}:{name} [] "
+                tab_active_sync         "#[fg=#89b4fa,bold] {index}:{name} <> "
 
                 // --- Session & DateTime ---
                 datetime          "#[fg=#6c7086] {format} "
