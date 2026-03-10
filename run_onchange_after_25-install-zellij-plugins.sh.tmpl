@@ -25,7 +25,8 @@ if [ ! -f "${PLUGIN_DIR}/zjstatus.wasm" ]; then
 fi
 
 # キャッシュクリア（プラグイン更新時に必要）
-rm -rf "${HOME}/.cache/zellij/"
+# macOS: ~/Library/Caches/org.Zellij-Contributors.Zellij/
+rm -rf "${HOME}/Library/Caches/org.Zellij-Contributors.Zellij/"
 
 echo "Zellij plugins installed."
 {{ end -}}
