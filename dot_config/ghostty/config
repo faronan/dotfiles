@@ -47,6 +47,12 @@ mouse-scroll-multiplier = 2
 # --- Clipboard ---
 copy-on-select = clipboard
 clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+
+# 1.3.0: default copy format changed to "mixed" (text+HTML)
+# Explicit text-only to keep previous behavior
+keybind = cmd+c=copy_to_clipboard:text
 
 # --- macOS Specific ---
 macos-titlebar-style = tabs
@@ -60,7 +66,23 @@ quick-terminal-animation-duration = 0.1
 
 # --- Shell Integration ---
 # Fish shell integration is automatic
-shell-integration-features = cursor,sudo,title
+# no-cursor: cursor-style is manually set above, skip shell override
+shell-integration-features = no-cursor,sudo,title
+
+# --- Split ---
+unfocused-split-opacity = 0.7
+
+# --- Keybinds ---
+# Prompt jump (requires shell integration OSC 133)
+keybind = cmd+shift+up=jump_to_prompt:-1
+keybind = cmd+shift+down=jump_to_prompt:1
+# Background opacity toggle (useful for presentations)
+keybind = cmd+u=toggle_background_opacity
 
 # --- Notifications ---
-desktop-notifications = false
+# OSC 9/777 notifications (click to focus window in v1.3.0+)
+desktop-notifications = true
+# 1.3.0: notify when long-running commands finish
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = notify
+notify-on-command-finish-after = 5s
