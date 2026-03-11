@@ -50,10 +50,6 @@ clipboard-trim-trailing-spaces = true
 clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
 
-# 1.3.0: default copy format changed to "mixed" (text+HTML)
-# Explicit text-only to keep previous behavior
-keybind = cmd+c=copy_to_clipboard:text
-
 # --- macOS Specific ---
 macos-titlebar-style = tabs
 macos-option-as-alt = true
