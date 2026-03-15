@@ -20,7 +20,7 @@ alpha-blending = linear
 
 # --- Background ---
 background-opacity = 0.9
-background-blur-radius = 20
+background-blur = 20
 
 # --- Theme ---
 # Auto switch based on OS appearance
