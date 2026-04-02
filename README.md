@@ -4,18 +4,18 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 
 ## 技術スタック
 
-| カテゴリ | ツール |
-|----------|--------|
-| ターミナル | Ghostty (GPU加速, ネイティブUI) |
-| シェル | Fish Shell 4.0+ |
-| Fishプラグイン | Fisher (autopair.fish) |
-| dotfile管理 | chezmoi |
-| プロンプト | Starship |
-| バージョン管理 | mise |
-| Pythonパッケージ | uv |
-| フォーマッタ/リンター | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python) |
-| CLIツール | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq, lazygit |
-| ターミナルマルチプレクサ | Zellij |
+| カテゴリ                 | ツール                                                               |
+| ------------------------ | -------------------------------------------------------------------- |
+| ターミナル               | Ghostty (GPU加速, ネイティブUI)                                      |
+| シェル                   | Fish Shell 4.0+                                                      |
+| Fishプラグイン           | Fisher (autopair.fish)                                               |
+| dotfile管理              | chezmoi                                                              |
+| プロンプト               | Starship                                                             |
+| バージョン管理           | mise                                                                 |
+| Pythonパッケージ         | uv                                                                   |
+| フォーマッタ/リンター    | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python)               |
+| CLIツール                | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq, lazygit |
+| ターミナルマルチプレクサ | Zellij                                                               |
 
 ## Zellij
 
@@ -39,10 +39,10 @@ zellij --layout dev
 
 Zellij + Claude Code で**日本語入力(IME)を使用すると、変換候補ウィンドウが正しい位置に表示されない**問題があります。
 
-| 原因 | Issue |
-|------|-------|
+| 原因                                                   | Issue                                                                                  |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------- |
 | Claude Code: TUIの疑似カーソルと実カーソル位置の不一致 | [anthropics/claude-code#16372](https://github.com/anthropics/claude-code/issues/16372) |
-| Zellij: CJK文字のカーソル位置ずれ | [zellij-org/zellij#1034](https://github.com/zellij-org/zellij/issues/1034) |
+| Zellij: CJK文字のカーソル位置ずれ                      | [zellij-org/zellij#1034](https://github.com/zellij-org/zellij/issues/1034)             |
 
 **回避策**: 日本語入力が必要な場合は、Zellij 外で直接 `claude` を起動するか、tmux を使用してください。
 
@@ -73,19 +73,19 @@ vscode-init-project node    # または python
 
 ### 共通ベース拡張（グローバル有効・11個）
 
-| 拡張 | 用途 |
-|------|------|
-| GitLens | Git blame/履歴 |
-| indent-rainbow | インデント可視化 |
-| Error Lens | エラー/警告インライン表示 |
-| zenkaku | 全角文字ハイライト |
-| Material Icon Theme | ファイルアイコン |
-| Biome | フォーマッタ/リンター（JS/TS/JSON/CSS/HTML） |
-| Prettier | フォーマッタ（Markdown/YAML/SCSS） |
-| EditorConfig | エディタ共通設定 |
-| Todo Tree | TODO集約 |
-| Code Spell Checker | スペルチェック |
-| Markdown All in One | Markdown編集 |
+| 拡張                | 用途                                         |
+| ------------------- | -------------------------------------------- |
+| GitLens             | Git blame/履歴                               |
+| indent-rainbow      | インデント可視化                             |
+| Error Lens          | エラー/警告インライン表示                    |
+| zenkaku             | 全角文字ハイライト                           |
+| Material Icon Theme | ファイルアイコン                             |
+| Biome               | フォーマッタ/リンター（JS/TS/JSON/CSS/HTML） |
+| Prettier            | フォーマッタ（Markdown/YAML/SCSS）           |
+| EditorConfig        | エディタ共通設定                             |
+| Todo Tree           | TODO集約                                     |
+| Code Spell Checker  | スペルチェック                               |
+| Markdown All in One | Markdown編集                                 |
 
 > **Note**: Biomeは高速なRust製ツールでJS/TS/JSON/CSS/HTMLを担当。Biome未対応のMarkdown/YAML/SCSSはPrettierがカバー。
 
@@ -100,6 +100,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply YOUR_GITHUB_USERNAME
 ```
 
 初回実行時に以下の入力を求められます：
+
 - 名前（Git user.name用）
 - メールアドレス（Git user.email用）
 - 仕事用マシンかどうか（y/n）
@@ -153,6 +154,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply YOUR_GITHUB_USERNAME
 - テーマはOS設定に連動（ライト/ダーク自動切り替え）
 
 **設定の確認・変更:**
+
 ```bash
 # 設定ファイルを開く
 $EDITOR ~/.config/ghostty/config
@@ -245,6 +247,15 @@ rm -rf ~/.zsh_sessions ~/.zsh_history
 ~/bin/chezmoi apply -v
 ```
 
+### プラグインのインストールに失敗した場合
+
+初回の `chezmoi apply` でFishやYaziのプラグインインストールに失敗した場合、再度 `chezmoi apply` を実行しても再インストールされません。以下のコマンドでスクリプトの実行状態をリセットしてから再実行してください：
+
+```bash
+chezmoi state delete-bucket --bucket=scriptState
+chezmoi apply -v
+```
+
 ### chezmoiコマンドが見つからない
 
 `get.chezmoi.io` は `~/bin/` にインストールします。Fish設定が適用されるまでは絶対パスで実行してください：
@@ -317,14 +328,14 @@ git push
 
 セットアップ時に以下が自動的に実行されます：
 
-| スクリプト | 内容 |
-|-----------|------|
-| Homebrew インストール | Homebrewが未インストールの場合 |
+| スクリプト             | 内容                                                                 |
+| ---------------------- | -------------------------------------------------------------------- |
+| Homebrew インストール  | Homebrewが未インストールの場合                                       |
 | パッケージインストール | Brewfileからツール・アプリをインストール（Brewfile変更時も自動実行） |
-| Fisher インストール | Fishプラグインマネージャー + autopair.fish |
-| Fish シェル設定 | デフォルトシェルをFishに変更（sudo必要）+ mise install |
-| macOS 設定 | キーリピート高速化、Finder設定、Dock自動非表示など |
-| SSH ローカル設定 | `~/.ssh/local.config` を初回作成（マシン固有のホスト用） |
+| Fisher インストール    | Fishプラグインマネージャー + autopair.fish                           |
+| Fish シェル設定        | デフォルトシェルをFishに変更（sudo必要）+ mise install               |
+| macOS 設定             | キーリピート高速化、Finder設定、Dock自動非表示など                   |
+| SSH ローカル設定       | `~/.ssh/local.config` を初回作成（マシン固有のホスト用）             |
 
 ## SSH設定
 
