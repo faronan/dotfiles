@@ -12,6 +12,7 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | dotfile管理              | chezmoi                                                              |
 | プロンプト               | Starship                                                             |
 | バージョン管理           | mise                                                                 |
+| JavaScript ランタイム    | Node.js (mise), Bun (共存: bunx / TS スクリプト実行)                 |
 | Pythonパッケージ         | uv                                                                   |
 | フォーマッタ/リンター    | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python)               |
 | CLIツール                | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq, lazygit |
