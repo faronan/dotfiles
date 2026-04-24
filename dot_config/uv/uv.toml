@@ -1,0 +1,8 @@
+# https://docs.astral.sh/uv/reference/settings/
+
+# Supply chain hardening: skip packages published within the last 7 days.
+# Malicious PyPI releases (e.g. LiteLLM 1.82.7/8, March 2026) are typically
+# detected and quarantined within hours to a few days, so a 1-week cooldown
+# prevents taking them in before detection catches up.
+# To temporarily bypass: uv add <pkg> --exclude-newer=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+exclude-newer = "7 days"

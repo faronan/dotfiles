@@ -1,0 +1,7 @@
+[install]
+# Supply chain hardening: skip packages published within the last 7 days (604800 seconds).
+minimumReleaseAge = 604800
+
+# Block lifecycle scripts (preinstall/postinstall/install) by default.
+# Equivalent to npm's ignore-scripts=true.
+ignoreScripts = true
