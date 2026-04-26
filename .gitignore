@@ -13,3 +13,6 @@
 .claude/CLAUDE.local.md
 .claude/plans
 .claude/tmp
+
+# Node (secretlint dev deps)
+node_modules/

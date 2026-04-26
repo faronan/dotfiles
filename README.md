@@ -237,6 +237,18 @@ rm -rf ~/.zsh_sessions ~/.zsh_history
 
 一部のmacOS設定（Dock、Finderなど）は再ログインまたは再起動で完全に反映されます。
 
+#### 8. dotfilesリポジトリにシークレット誤コミット防止フックを設定
+
+dotfilesリポジトリ自体への secret 誤コミットを防ぐため、`secretlint` + `prek` の pre-commit フックを登録します（**このリポジトリのみで動作**）。
+
+```bash
+chezmoi cd
+pnpm install
+prek install
+```
+
+以降、このリポジトリでの `git commit` 時に secretlint が走り、API キー等の混入を検知します。
+
 ## トラブルシューティング
 
 ### 初期設定の入力画面が表示されずに終了した場合

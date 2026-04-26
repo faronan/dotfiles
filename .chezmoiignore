@@ -4,6 +4,13 @@ LICENSE
 .git/
 .gitignore
 
+# Repository management files (not deployed to home)
+.pre-commit-config.yaml
+.secretlintrc.json
+package.json
+pnpm-lock.yaml
+node_modules
+
 # OS固有ファイルを除外
 {{- if ne .chezmoi.os "darwin" }}
 run_once_before_00-install-homebrew.sh.tmpl
