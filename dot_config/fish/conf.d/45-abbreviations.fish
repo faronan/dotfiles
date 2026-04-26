@@ -115,4 +115,9 @@ if status is-interactive
 
     # Homebrew (パッケージ管理)
     abbr -a bu 'brew update && brew upgrade && brew cleanup'
+
+    # ===========================================
+    # just (タスクランナー)
+    # ===========================================
+    abbr -a j just
 end

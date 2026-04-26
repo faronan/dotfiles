@@ -1,0 +1,14 @@
+#!/bin/bash
+# Brewfile hash: {{ include "Brewfile" | sha256sum }}
+set -euo pipefail
+{{ if eq .chezmoi.os "darwin" -}}
+COMPLETION_DIR="${HOME}/.config/fish/completions"
+mkdir -p "${COMPLETION_DIR}"
+
+if command -v just >/dev/null 2>&1; then
+    echo "Generating just fish completion..."
+    just --completions fish > "${COMPLETION_DIR}/just.fish"
+else
+    echo "⚠️  just not found, skipping completion generation"
+fi
+{{ end -}}

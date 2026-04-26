@@ -9,6 +9,7 @@ brew "gh"
 brew "lazygit"  # Terminal UI for git commands
 brew "biome"  # Fast formatter/linter for JS/TS/JSON/CSS/HTML
 brew "prettier"  # Formatter for Markdown/YAML/SCSS (Biome未対応)
+brew "just"  # Command runner (Makefile alternative)
 brew "prek"  # pre-commit in Rust (used with secretlint for this repo)
 
 # === Modern CLI Tools ===
