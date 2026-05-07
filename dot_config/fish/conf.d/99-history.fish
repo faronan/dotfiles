@@ -12,8 +12,9 @@ function fish_should_add_to_history
     string match -qr '^ ' -- $argv[1]; and return 1
 
     # Exclude very short commands (2 chars or less: ls, cd, etc.)
-    # `string length` returns one value per line, so use `math max` for multiline commands
-    test (math max (string length -- $cmd)) -le 2; and return 1
+    # $cmd may be a list (multiline commands split on newlines); check the longest element
+    set -l lengths (string length -- $cmd)
+    test (math "max("(string join ',' $lengths)")") -le 2; and return 1
 
     # Exclude session management commands
     set -l ignore_cmds exit clear history reload
