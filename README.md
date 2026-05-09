@@ -14,7 +14,7 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | バージョン管理           | mise                                                                 |
 | JavaScript ランタイム    | Node.js (mise), Bun (共存: bunx / TS スクリプト実行)                 |
 | Pythonパッケージ         | uv                                                                   |
-| フォーマッタ/リンター    | Biome (JS/TS), Prettier (Markdown/YAML), Ruff (Python)               |
+| フォーマッタ/リンター    | Biome (JS/TS), Prettier (mise: Markdown/YAML), Ruff (Python)         |
 | CLIツール                | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq, lazygit |
 | ターミナルマルチプレクサ | Zellij                                                               |
 
@@ -88,7 +88,7 @@ vscode-init-project node    # または python
 | Code Spell Checker  | スペルチェック                               |
 | Markdown All in One | Markdown編集                                 |
 
-> **Note**: Biomeは高速なRust製ツールでJS/TS/JSON/CSS/HTMLを担当。Biome未対応のMarkdown/YAML/SCSSはPrettierがカバー。
+> **Note**: Biomeは高速なRust製ツールでJS/TS/JSON/CSS/HTMLを担当。Biome未対応のMarkdown/YAML/SCSSはmise管理のPrettierがカバー。
 
 詳細・運用ルールは `~/.config/vscode-templates/README.md` を参照。
 

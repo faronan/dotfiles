@@ -6,6 +6,7 @@ python = "3.12"
 uv = "latest"
 ruff = "latest"
 "npm:sfw" = "latest"
+"npm:prettier" = "3.8.3"
 
 [settings]
 experimental = true
