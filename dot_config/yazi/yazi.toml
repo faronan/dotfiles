@@ -2,11 +2,12 @@
 # https://yazi-rs.github.io/docs/configuration/yazi
 
 [mgr]
+ratio = [1, 3, 4]
 show_hidden = true
 
 # git.yazi 用 fetcher
 [plugin]
 prepend_fetchers = [
-	{ id = "git", url = "*", run = "git" },
-	{ id = "git", url = "*/", run = "git" },
+	{ id = "git", url = "*", run = "git", group = "git" },
+	{ id = "git", url = "*/", run = "git", group = "git" },
 ]
