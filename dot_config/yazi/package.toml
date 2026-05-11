@@ -10,3 +10,5 @@ hash = "2f08b8249b57737e7257298a3b2a2edc"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
+rev = "0670801"
+hash = "b8f46853c27707115f25f3423a47bd38"
