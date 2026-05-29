@@ -1,7 +1,9 @@
 # uv (Python package manager)
 if type -q uv
     # 補完
-    uv generate-shell-completion fish | source
+    if status is-interactive
+        uv generate-shell-completion fish | source
+    end
 
     # エイリアス
     alias pip 'uv pip'
@@ -9,6 +11,5 @@ if type -q uv
     alias uvr 'uv run'
     alias uvs 'uv sync'
     alias uva 'uv add'
-    alias python 'uv run python'
     alias pytest 'uv run pytest'
 end

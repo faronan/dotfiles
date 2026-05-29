@@ -18,6 +18,10 @@ macOS + Fish Shell 環境の dotfiles を chezmoi で管理するリポジトリ
 | CLIツール                | eza, bat, ripgrep, fd, fzf, zoxide, delta, atuin, yazi, ghq, lazygit |
 | ターミナルマルチプレクサ | Zellij                                                               |
 
+## Fish の package manager 保護
+
+Fish では supply-chain protection のため、対話・非対話 `fish -lc` のどちらでも `npm` / `npx` / `pnpm` / `yarn` / `uv` は `sfw` 経由で実行されます。素のコマンドが必要な場合は `command npm` / `command pnpm` / `command uv` のように明示的に実行します。
+
 ## Zellij
 
 開発用レイアウトが用意されています：

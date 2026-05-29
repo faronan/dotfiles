@@ -1,11 +1,13 @@
 # zoxide (smarter cd)
-if type -q zoxide
-    zoxide init fish | source
-end
+if status is-interactive
+    if type -q zoxide
+        zoxide init fish | source
+    end
 
-# fzf
-if type -q fzf
-    fzf --fish | source
+    # fzf
+    if type -q fzf
+        fzf --fish | source
+    end
 end
 
 # fzf settings

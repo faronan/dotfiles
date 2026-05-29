@@ -42,7 +42,7 @@ if type -q delta
 end
 
 # zoxide (cd の代替)
-if type -q zoxide
+if status is-interactive; and type -q zoxide
     alias cd z
     alias cdi zi
 end
